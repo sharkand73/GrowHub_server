@@ -1,14 +1,40 @@
 package com.GrowHub.Server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table
 public class Job extends TextContent{
 
+    @JsonIgnoreProperties(value="jobs")
+    @ManyToOne
+    @JoinColumn(name="area_id", nullable = false)
     private Area area;
+
+    @Column
     private String deadline;
+
+    @Column
     private int difficulty;
+
+    @JsonIgnoreProperties(value="jobs")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(name = "job_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
+            }
+    )
     private List<User> users;
+
 
     public Job(Long id, String date, User author, String title, String body, Area area, String deadline, int difficulty) {
         super(id, date, author, title, body);
@@ -16,6 +42,9 @@ public class Job extends TextContent{
         this.deadline = deadline;
         this.difficulty = difficulty;
         this.users = new ArrayList<>();
+    }
+
+    public Job() {
     }
 
     public Area getArea() {
@@ -49,4 +78,6 @@ public class Job extends TextContent{
     public void setUsers(List<User> users) {
         this.users = users;
     }
+
+
 }

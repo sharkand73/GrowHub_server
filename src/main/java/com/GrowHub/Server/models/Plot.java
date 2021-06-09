@@ -1,14 +1,46 @@
 package com.GrowHub.Server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name="plots")
 public class Plot extends Area{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long Id;
+
+    @Column(name="plot_number")
     private int plotNumber;
+
+    @Column
     private double length;
+
+    @Column
     private double breadth;
+
+    @Column
     private boolean isFlat;
+
+    @JsonIgnoreProperties(value="plot")
+    @OneToMany(mappedBy = "plot", fetch = FetchType.LAZY)
     private List<Comment> comments;
+
+    @JsonIgnoreProperties(value="plots")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(name = "plot_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "user_id", nullable = false, updatable = false )
+            }
+    )
     private List<User> users;
 
     public Plot(String areaName, int plotNumber, double length, double breadth, boolean isFlat) {
@@ -17,6 +49,9 @@ public class Plot extends Area{
         this.length = length;
         this.breadth = breadth;
         this.isFlat = isFlat;
+    }
+
+    public Plot() {
     }
 
     public int getPlotNumber() {
@@ -66,4 +101,5 @@ public class Plot extends Area{
     public void setUsers(List<User> users) {
         this.users = users;
     }
+
 }

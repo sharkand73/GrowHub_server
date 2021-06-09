@@ -16,6 +16,7 @@ public class User {
     private List<String> growing;
     private List<Plot> plots;
     private List<Job> jobs;
+    private Long id;
 
     public User(String shortName, String email, String password, PositionType position, int yearJoined) {
         this.shortName = shortName;
@@ -27,6 +28,7 @@ public class User {
         this.growing = new ArrayList<>();
         this.plots = new ArrayList<Plot>();
         this.jobs = new ArrayList<Job>();
+        this.id = id;
     }
 
     public String getShortName() {
@@ -105,5 +107,13 @@ public class User {
 
     public boolean isOnCommittee() {
         return !(position == PositionType.NONE || position == PositionType.INACTIVE);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

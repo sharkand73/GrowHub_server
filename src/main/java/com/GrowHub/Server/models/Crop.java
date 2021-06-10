@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="crops")
@@ -29,12 +30,13 @@ public class Crop {
                     @JoinColumn(name = "user_id", nullable = false, updatable = false )
             }
     )
-    private ArrayList<User> users;
+    private List<User> users;
 
     //CONSTRUCTOR
     public Crop(String name) {
         this.id = id;
         this.name = name;
+        this.users = new ArrayList<>();
     }
 
     public Crop() {
@@ -56,11 +58,11 @@ public class Crop {
         this.name = name;
     }
 
-    public ArrayList<User> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(ArrayList<User> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 }

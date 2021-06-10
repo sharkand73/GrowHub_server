@@ -3,8 +3,14 @@ package com.GrowHub.Server.models;
 
 import com.GrowHub.Server.models.enums.Month;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="tips")
 public class Tip extends TextContent{
 
+    @Column
+    @Enumerated(value= EnumType.STRING)
     private Month month;
 
     //CONSTRUCTOR
@@ -12,6 +18,8 @@ public class Tip extends TextContent{
         super(date, author, title, body);
         this.month = month;
     }
+
+    public Tip(){}
 
     public Month getMonth() {
         return month;

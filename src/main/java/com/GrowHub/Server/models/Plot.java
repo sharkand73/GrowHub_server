@@ -10,9 +10,6 @@ import java.util.List;
 @Table(name="plots")
 public class Plot extends Area{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
 
     @Column(name="plot_number")
     private int plotNumber;

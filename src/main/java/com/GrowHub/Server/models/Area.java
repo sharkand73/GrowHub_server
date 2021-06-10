@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -18,12 +19,13 @@ public abstract class Area {
 
     @JsonIgnoreProperties(value="area")
     @OneToMany(mappedBy = "area", fetch=FetchType.LAZY)
-    private ArrayList<Job> jobs;
+    private List<Job> jobs;
 
 
     //CONSTRUCTOR
     public Area(String areaName) {
         this.areaName = areaName;
+        this.jobs = new ArrayList<>();
         this.id = id;
     }
 
@@ -46,11 +48,11 @@ public abstract class Area {
         this.id = id;
     }
 
-    public ArrayList<Job> getJobs() {
+    public List<Job> getJobs() {
         return jobs;
     }
 
-    public void setJobs(ArrayList<Job> jobs) {
+    public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
     }
 }

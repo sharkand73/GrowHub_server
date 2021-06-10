@@ -1,5 +1,7 @@
 package com.GrowHub.Server.models;
 
+import com.GrowHub.Server.models.enums.AreaType;
+
 import java.util.ArrayList;
 import java.util.List;
 

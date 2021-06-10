@@ -1,9 +1,6 @@
 package com.GrowHub.Server.components;
 
-import com.GrowHub.Server.models.BulletinItem;
-import com.GrowHub.Server.models.Job;
-import com.GrowHub.Server.models.Tip;
-import com.GrowHub.Server.models.User;
+import com.GrowHub.Server.models.*;
 import com.GrowHub.Server.models.enums.AreaType;
 import com.GrowHub.Server.models.enums.Month;
 import com.GrowHub.Server.models.enums.PositionType;
@@ -13,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -32,6 +31,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     JobRepository jobRepository;
 
+    @Autowired
+    CommunalRepository communalRepository;
+
     public DataLoader() {
     }
 
@@ -48,6 +50,9 @@ public class DataLoader implements ApplicationRunner {
 
         User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.ORDINARY, 2016);
         userRepository.save(Andy);
+
+        Communal communal1 = new Communal("Orchard", AreaType.ORCHARD, new ArrayList<>(), "20m2 area of fruit trees");
+        communalRepository.save(communal1);
 
         Tip tip1 = new Tip(1L,"23/12/2020", AdministratorJanet, "New Year, new seeds!", "Place your seed order in January as it will soon be time to start sowing onions, cabbages, parsnips, leeks, sweet peas and calendula.", Month.JANUARY);
         tipRepository.save(tip1);
@@ -85,13 +90,13 @@ public class DataLoader implements ApplicationRunner {
         Tip tip12 = new Tip(1L,"28/04/2021", AdministratorJanet, "Can you dig it?", "If you love digging, on a dry day when the ground’s not frozen get out and turn the veg patch to let the frost in.", Month.DECEMBER);
         tipRepository.save(tip12);
 
-        Job job1 = new Job(1L, "04/02/2021", Mike,"Toilet door", "The toilet door has rotted beyond repair and needs to be replaced", AreaType.TOILET, "30/06/2021", 5);
+        Job job1 = new Job(1L, "04/02/2021", Mike,"Toilet door", "The toilet door has rotted beyond repair and needs to be replaced", communal1, "30/06/2021", 5);
         jobRepository.save(job1);
 
-        Job job2 = new Job(1L, "31/05/2021", Mike,"Tip trip", "There is a pile of bundled rubbish that needs to go to the tip, unless someone can repurpose any of it?", AreaType.COMMUNITY_GARDEN, "10/07/2021", 2);
+        Job job2 = new Job(1L, "31/05/2021", Mike,"Tip trip", "There is a pile of bundled rubbish that needs to go to the tip, unless someone can repurpose any of it?", communal1, "10/07/2021", 2);
         jobRepository.save(job2);
 
-        Job job3 = new Job(1L, "31/05/2021", Mike,"Wheelbarrow tyres", "The communal wheelbarrows (x2) need their tyres pumped up. Does anyone have a pump and the elbow grease to do it?", AreaType.CONTAINER,, "28/06/2021", 2);
+        Job job3 = new Job(1L, "31/05/2021", Mike,"Wheelbarrow tyres", "The communal wheelbarrows (x2) need their tyres pumped up. Does anyone have a pump and the elbow grease to do it?", communal1, "28/06/2021", 2);
         jobRepository.save(job3);
 
         BulletinItem news1 = new BulletinItem(1L, "01/11/2020", Andy, "Lecture - free to attend", "The Botanic Society of Scotland is holding a free online lecture called 'What plant is that? Are smartphone apps the answer?', on 19/11/2020. If anyone is interested go to https://www.botanical-society-scotland.org.uk/category/news-events/lectures");
@@ -106,7 +111,11 @@ public class DataLoader implements ApplicationRunner {
         BulletinItem news4 = new BulletinItem(1L, "23/04/2021", Mike, "New water supply installed", "Good news! The new water supply has been installed by the containers. Well done to Mary of plot 3 and Carl of plot 42 who made it happen! Thank you!");
         bulletinItemRepository.save(news4);
 
+        Knowhow knowhow1 = new Knowhow(1L, "23/09/2020", Andy, "Chitting potatoes", "Leave your potatoes out 6 weeks before planting to allow the shoots to grow", Month.FEBRUARY);
+        knowhowRepository.save(knowhow1);
 
+        Knowhow knowhow2 = new Knowhow(1L, "13/01/2021", Andy, "Pruning fruit tress", "Prune fruit tress in October", Month.OCTOBER);
+        knowhowRepository.save(knowhow2);
 
     }
 }

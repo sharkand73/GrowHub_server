@@ -7,12 +7,12 @@ import java.util.List;
 
 public class Job extends TextContent{
 
-    private AreaType area;
+    private Area area;
     private String deadline;
     private int difficulty;
     private List<User> users;
 
-    public Job(Long id, String date, User author, String title, String body, AreaType area, String deadline, int difficulty) {
+    public Job(Long id, String date, User author, String title, String body, Area area, String deadline, int difficulty) {
         super(id, date, author, title, body);
         this.area = area;
         this.deadline = deadline;

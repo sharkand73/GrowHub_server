@@ -8,6 +8,7 @@ import javax.persistence.Table;
 @Table
 public class BulletinItem extends TextContent{
 
+    //CONSTRUCTOR
     public BulletinItem(String date, User author, String title, String body) {
         super(date, author, title, body);
 

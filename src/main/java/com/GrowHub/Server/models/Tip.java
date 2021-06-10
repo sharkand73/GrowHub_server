@@ -7,9 +7,9 @@ public class Tip extends TextContent{
 
     private Month month;
 
-  
-    public Tip(Long id, String date, User author, String title, String body, Month month) {
-        super(id, date, author, title, body);
+    //CONSTRUCTOR
+    public Tip(String date, User author, String title, String body, Month month) {
+        super(date, author, title, body);
         this.month = month;
     }
 

@@ -43,6 +43,7 @@ public class Plot extends Area{
     )
     private List<User> users;
 
+    //CONSTRUCTOR
     public Plot(String areaName, int plotNumber, double length, double breadth, boolean isFlat) {
         super(areaName);
         this.plotNumber = plotNumber;

@@ -31,8 +31,9 @@ public class Crop {
     )
     private ArrayList<User> users;
 
-
+    //CONSTRUCTOR
     public Crop(String name) {
+        this.id = id;
         this.name = name;
     }
 

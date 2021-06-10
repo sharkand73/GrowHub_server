@@ -19,6 +19,7 @@ public class Communal extends Area{
     @Column(name="area_info")
     private String areaInfo;
 
+    //CONSTRUCTOR
     public Communal(String areaName, AreaType areaType, String areaInfo) {
         super(areaName);
         this.areaType = areaType;

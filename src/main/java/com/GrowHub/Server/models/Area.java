@@ -21,6 +21,7 @@ public abstract class Area {
     private ArrayList<Job> jobs;
 
 
+    //CONSTRUCTOR
     public Area(String areaName) {
         this.areaName = areaName;
         this.id = id;

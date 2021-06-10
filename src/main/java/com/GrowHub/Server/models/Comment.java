@@ -8,6 +8,7 @@ import javax.persistence.Table;
 @Table
 public class Comment extends TextContent{
 
+    //CONSTRUCTOR
     public Comment(String date, User author, String title, String body) {
         super(date, author, title, body);
     }

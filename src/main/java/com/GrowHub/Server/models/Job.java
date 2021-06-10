@@ -38,7 +38,7 @@ public class Job extends TextContent{
     )
     private List<User> users;
 
-
+    //CONSTRUCTOR
     public Job(String date, User author, String title, String body, Area area, String deadline, int difficulty) {
         super(date, author, title, body);
         this.area = area;

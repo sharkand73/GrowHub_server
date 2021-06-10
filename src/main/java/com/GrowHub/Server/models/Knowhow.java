@@ -17,7 +17,8 @@ import static java.lang.Integer.parseInt;
 public class Knowhow extends TextContent{
 
     private Month month;
-  
+
+    //CONSTRUCTOR
     public Knowhow(String date, User author, String title, String body, Month month) {
         super(date, author, title, body);
     }

@@ -73,6 +73,7 @@ public class User {
     )
     private List<Crop> crops;
 
+    //CONSTRUCTOR
 
     public User(String shortName, String email, String password, PositionType position, int yearJoined) {
         this.shortName = shortName;

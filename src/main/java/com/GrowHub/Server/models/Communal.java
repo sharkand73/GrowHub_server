@@ -2,19 +2,32 @@ package com.GrowHub.Server.models;
 
 import com.GrowHub.Server.models.enums.AreaType;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name="communal_areas")
 public class Communal extends Area{
 
+    @Column(name="area_type")
+    @Enumerated(value= EnumType.STRING)
     private AreaType areaType;
-    private ArrayList<Integer> plotNumbers;
+
+    @Column(name="plot_numbers")
+    private String plotNumbers;
+
+    @Column(name="area_info")
     private String areaInfo;
 
-    public Communal(String areaName, AreaType areaType, ArrayList<Integer> plotNumbers, String areaInfo) {
+    public Communal(String areaName, AreaType areaType, String areaInfo) {
         super(areaName);
         this.areaType = areaType;
-        this.plotNumbers = plotNumbers;
+        this.plotNumbers = "";
         this.areaInfo = areaInfo;
+    }
+
+    public Communal(){
+
     }
 
     public AreaType getAreaType() {
@@ -25,11 +38,11 @@ public class Communal extends Area{
         this.areaType = areaType;
     }
 
-    public ArrayList<Integer> getPlotNumbers() {
+    public String getPlotNumbers() {
         return plotNumbers;
     }
 
-    public void setPlotNumbers(ArrayList<Integer> plotNumbers) {
+    public void setPlotNumbers(String plotNumbers) {
         this.plotNumbers = plotNumbers;
     }
 

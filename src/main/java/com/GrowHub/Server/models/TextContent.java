@@ -1,19 +1,39 @@
 package com.GrowHub.Server.models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class TextContent {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String date;
+
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name="author_id", nullable = false)
     private User author;
+
+    @Column
     private String title;
+
+    @Column
     private String body;
 
-    public TextContent(Long id, String date, User author, String title, String body) {
+    public TextContent(String date, User author, String title, String body) {
         this.id = id;
         this.date = date;
         this.author = author;
         this.title = title;
         this.body = body;
+    }
+
+    public TextContent() {
     }
 
     public Long getId() {

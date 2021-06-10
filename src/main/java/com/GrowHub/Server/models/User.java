@@ -1,22 +1,78 @@
 package com.GrowHub.Server.models;
 
 import com.GrowHub.Server.models.enums.PositionType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name="users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column
     private String shortName;
+
+    @Column
     private String email;
+
+    @Column
     private String password;
+
+    @Column
     private PositionType position;
+
+    @Column
     private int yearJoined;
+
+    @Column
     private int yearLeft;
-    private List<String> growing;
+
+    @JsonIgnoreProperties(value = "users")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "plot_id", nullable = false, updatable = false )
+            }
+    )
     private List<Plot> plots;
+
+    @JsonIgnoreProperties(value = "users")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "job_id", nullable = false, updatable = false)
+            }
+    )
     private List<Job> jobs;
-    private Long id;
+
+    @JsonIgnoreProperties(value = "users")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "crop_id", nullable = false, updatable = false)
+            }
+    )
+    private List<Crop> crops;
+
 
     public User(String shortName, String email, String password, PositionType position, int yearJoined) {
         this.shortName = shortName;
@@ -25,10 +81,13 @@ public class User {
         this.position = position;
         this.yearJoined = yearJoined;
         this.yearLeft = 0;
-        this.growing = new ArrayList<>();
-        this.plots = new ArrayList<Plot>();
-        this.jobs = new ArrayList<Job>();
+        this.crops = new ArrayList<>();
+        this.plots = new ArrayList<>();
+        this.jobs = new ArrayList<>();
         this.id = id;
+    }
+
+    public User() {
     }
 
     public String getShortName() {
@@ -79,12 +138,12 @@ public class User {
         this.yearLeft = yearLeft;
     }
 
-    public List<String> getGrowing() {
-        return growing;
+    public List<Crop> getCrops() {
+        return crops;
     }
 
-    public void setGrowing(List<String> growing) {
-        this.growing = growing;
+    public void setCrops(List<Crop> crops) {
+        this.crops = crops;
     }
 
     public List<Plot> getPlots() {

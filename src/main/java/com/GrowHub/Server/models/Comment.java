@@ -8,8 +8,8 @@ import javax.persistence.Table;
 @Table
 public class Comment extends TextContent{
 
-    public Comment(Long id, String date, User author, String title, String body) {
-        super(id, date, author, title, body);
+    public Comment(String date, User author, String title, String body) {
+        super(date, author, title, body);
     }
 
     public Comment() {

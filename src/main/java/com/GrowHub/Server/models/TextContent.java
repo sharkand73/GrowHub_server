@@ -25,7 +25,7 @@ public abstract class TextContent {
     @Column
     private String body;
 
-    public TextContent(Long id, String date, User author, String title, String body) {
+    public TextContent(String date, User author, String title, String body) {
         this.id = id;
         this.date = date;
         this.author = author;

@@ -36,8 +36,8 @@ public class Job extends TextContent{
     private List<User> users;
 
 
-    public Job(Long id, String date, User author, String title, String body, Area area, String deadline, int difficulty) {
-        super(id, date, author, title, body);
+    public Job(String date, User author, String title, String body, Area area, String deadline, int difficulty) {
+        super(date, author, title, body);
         this.area = area;
         this.deadline = deadline;
         this.difficulty = difficulty;

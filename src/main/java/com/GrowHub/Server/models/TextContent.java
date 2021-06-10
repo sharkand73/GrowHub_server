@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "text_contents")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class TextContent {
     @Id
@@ -14,7 +15,8 @@ public abstract class TextContent {
     @Column
     private String date;
 
-    @JsonBackReference
+//    @JsonBackReference
+    @JsonIgnoreProperties(value = "text_contents")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;

@@ -1,6 +1,7 @@
 package com.GrowHub.Server.models;
 
 import com.GrowHub.Server.models.enums.PositionType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
@@ -26,6 +27,7 @@ public class User {
     private String password;
 
     @Column
+    @Enumerated(value = EnumType.STRING)
     private PositionType position;
 
     @Column
@@ -73,8 +75,12 @@ public class User {
     )
     private List<Crop> crops;
 
-    //CONSTRUCTOR
+    @JsonIgnoreProperties(value = "author")
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    private List<TextContent> textContents;
 
+
+    //CONSTRUCTOR
     public User(String shortName, String email, String password, PositionType position, int yearJoined) {
         this.shortName = shortName;
         this.email = email;
@@ -85,11 +91,14 @@ public class User {
         this.crops = new ArrayList<>();
         this.plots = new ArrayList<>();
         this.jobs = new ArrayList<>();
+        this.textContents = new ArrayList<>();
         this.id = id;
     }
 
     public User() {
     }
+
+
 
     public String getShortName() {
         return shortName;
@@ -163,17 +172,25 @@ public class User {
         this.jobs = jobs;
     }
 
-    // add/remove job functions?
-
-    public boolean isOnCommittee() {
-        return !(position == PositionType.NONE || position == PositionType.INACTIVE);
-    }
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<TextContent> getTextContents() {
+        return textContents;
+    }
+
+    public void setTextContents(List<TextContent> textContents) {
+        this.textContents = textContents;
+    }
+
+    // add/remove job functions?
+
+    public boolean isOnCommittee() {
+        return !(position == PositionType.NONE || position == PositionType.INACTIVE);
     }
 }

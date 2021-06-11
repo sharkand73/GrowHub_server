@@ -1,5 +1,6 @@
 package com.GrowHub.Server.models;
 
+import com.GrowHub.Server.models.enums.AreaType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
@@ -49,7 +50,7 @@ public class Plot extends Area{
         this.isFlat = isFlat;
     }
 
-    public Plot() {
+    public Plot(AreaType plot, int plotNumber, double length, double breadth, boolean isFlat) {
     }
 
     public int getPlotNumber() {

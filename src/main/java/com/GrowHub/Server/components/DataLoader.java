@@ -34,6 +34,15 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     CommunalRepository communalRepository;
 
+    @Autowired
+    PlotRepository plotRepository;
+
+    @Autowired
+    CropRepository cropRepository;
+
+    @Autowired
+    CommentRepository commentRepository;
+
     // Plots, Crops, Comments (Area repository?)
 
     public DataLoader() {
@@ -52,6 +61,42 @@ public class DataLoader implements ApplicationRunner {
 
         User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.ORDINARY, 2016);
         userRepository.save(Andy);
+
+        User Pauline = new User("PaulineB", "paulinelovescabbage@gmail", "whizkid763", PositionType.ORDINARY, 2017);
+        userRepository.save(Pauline);
+
+        User Brian = new User("BrianH", "mrlovemonster@gmail", "45lovemachine78", PositionType.ORDINARY, 2020);
+        userRepository.save(Brian);
+
+        Plot plot1 = new Plot("Plot", 1, 5.4, 4.5, true);
+        plotRepository.save(plot1);
+
+        Plot plot2 = new Plot("Plot",2, 5.50, 4.00, true);
+        plotRepository.save(plot2);
+
+        Plot plot3 = new Plot("Plot",3, 6.90, 3.90, true);
+        plotRepository.save(plot2);
+
+        Plot plot4 = new Plot("Plot",4, 6.00, 3.50, true);
+        plotRepository.save(plot4);
+
+        Plot plot5 = new Plot("Plot",5, 6.10, 3.50, true);
+        plotRepository.save(plot5);
+
+        Plot plot6 = new Plot("Plot",5, 7.00, 4.50, false);
+        plotRepository.save(plot6);
+
+        Plot plot7 = new Plot("Plot",7, 7.10, 4.40, false);
+        plotRepository.save(plot7);
+
+        Plot plot8 = new Plot("Plot",8, 7.00, 4.60, false);
+        plotRepository.save(plot8);
+
+        Plot plot9 = new Plot("Plot",9, 6.90, 5.10, false);
+        plotRepository.save(plot9);
+
+        Plot plot10 = new Plot("Plot",10, 6.20, 4.20, true);
+        plotRepository.save(plot10);
 
         Communal communal1 = new Communal("Orchard", AreaType.ORCHARD, "20m2 area of fruit trees");
         communalRepository.save(communal1);
@@ -116,8 +161,96 @@ public class DataLoader implements ApplicationRunner {
         Knowhow knowhow1 = new Knowhow("23/09/2020", Andy, "Chitting potatoes", "Leave your potatoes out 6 weeks before planting to allow the shoots to grow", Month.FEBRUARY);
         knowhowRepository.save(knowhow1);
 
-        Knowhow knowhow2 = new Knowhow("13/01/2021", Andy, "Pruning fruit tress", "Prune fruit tress in October", Month.OCTOBER);
+        Knowhow knowhow2 = new Knowhow("13/01/2021", Andy, "Spring onions", "September is one of the busiest months with harvesting. It’s worth sowing some winter hardy spring onions ready for spring. I stick with White Lisbon, which never fails me, but make sure you get winter hardy.", Month.SEPTEMBER);
         knowhowRepository.save(knowhow2);
+
+        Knowhow knowhow3 = new Knowhow("25/04/2021", Mike, "Growing potatoes", "My lesson - not learned but taught by my next door neighbour is to make as much compost as you can.   I was amazed at my success with potatoes which were planted in rich soil with lots of compost in it.   I just stuck a few spuds in the ground and did nothing for three or four months and somehow managed to get a decent crop of healthy looking spuds!", Month.APRIL);
+        knowhowRepository.save(knowhow3);
+
+        Knowhow knowhow4 = new Knowhow("03/01/2021", Pauline, "Leeks", "Leeks left standing will be fine whatever the weather but you may find them hard to get out of frozen ground or taking up ground you want to dig or manure. In that case draw a shallow trench, dig up your leeks in good weather and trim the roots. Lay them in the trench at an angle so most of the leek is out of the trench and cover with loose soil. When you want some, just pull without any strain", Month.JANUARY);
+        knowhowRepository.save(knowhow4);
+
+        Knowhow knowhow5 = new Knowhow("13/02/2021", Pauline, "Parsnips", "Conventional advice is often to sow parsnips in Feb but I believe their reputation for poor germination rates is due to being placed in cold wet soil and I have had much better germination rates by sowing in March or even April.", Month.FEBRUARY);
+        knowhowRepository.save(knowhow5);
+
+        Knowhow knowhow6 = new Knowhow("15/011/2020", AdministratorJanet, "Bean harvesting", "Your runner beans will be at the top of the canes in August so pinch out their growing tip to encourage bushier growth below. Pick all runner, climbing and dwarf beans regularly except for the haricot varieties such as Borlotti where we want the bean rather than pod for table.", Month.AUGUST);
+        knowhowRepository.save(knowhow6);
+
+        Crop crop1 = new Crop("carrots");
+        cropRepository.save(crop1);
+
+        Crop crop2 = new Crop("cabbages");
+        cropRepository.save(crop2);
+
+        Crop crop3 = new Crop("curly kale");
+        cropRepository.save(crop3);
+
+        Crop crop4 = new Crop("long beans");
+        cropRepository.save(crop4);
+
+        Crop crop5 = new Crop("french beans");
+        cropRepository.save(crop5);
+
+        Crop crop6 = new Crop("courgettes");
+        cropRepository.save(crop6);
+
+        Crop crop7 = new Crop("broccoli");
+        cropRepository.save(crop7);
+
+        Crop crop8 = new Crop("beetroot");
+        cropRepository.save(crop8);
+
+        Crop crop9 = new Crop("potatoes");
+        cropRepository.save(crop9);
+
+        Crop crop10 = new Crop("garlic");
+        cropRepository.save(crop10);
+
+        Crop crop11 = new Crop("parsnips");
+        cropRepository.save(crop11);
+
+        Crop crop12 = new Crop("lettuce");
+        cropRepository.save(crop12);
+
+        Crop crop13 = new Crop("tomatoes");
+        cropRepository.save(crop13);
+
+        Crop crop14 = new Crop("spring onions");
+        cropRepository.save(crop14);
+
+        Crop crop15 = new Crop("brown onions");
+        cropRepository.save(crop15);
+
+        Crop crop16 = new Crop("shallots");
+        cropRepository.save(crop16);
+
+        Crop crop17 = new Crop("leeks");
+        cropRepository.save(crop17);
+
+        Crop crop18 = new Crop("mint");
+        cropRepository.save(crop18);
+
+        Crop crop19 = new Crop("raspberries");
+        cropRepository.save(crop19);
+
+        Crop crop20 = new Crop("strawberries");
+        cropRepository.save(crop20);
+
+        Comment comment1job1 = new Comment("11/02/2021", Pauline, "Toilet", "Could I suggest we use a shower curtain in the meantime? Secure the sides with clothes pegs", plot1);
+        commentRepository.save(comment1job1);
+
+        Comment comment2job3 = new Comment("02/06/2021", Brian, "Wheelbarrow tyres", "I have pump and can do it on Saturday", plot2);
+        commentRepository.save(comment2job3);
+
+        Comment comment3knowhow2 = new Comment("14/01/2021", Mike, "Also...", "I do the same myself Andy. You can also plant your sprouts now for Christmas", plot3);
+        commentRepository.save(comment3knowhow2);
+
+        // Does a comment really need the plot stated? It already has a user and should we know the plot through the user?
+        // At the moment I can't tell which plot to give the comments anyway as I'm not sure which user has which plot?
+
+        // Do we want plot users to be able to add comments (history) to their plots? Do we need to add String history
+        // to Plot model? Or if we want them to be able to made multiple comments to their plot (rather than edit the one string) we would
+        // need a new model called plotComment and a new List attribute for them in Plot?
 
     }
 }

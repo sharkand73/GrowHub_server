@@ -43,13 +43,10 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     CommentRepository commentRepository;
 
-    // Plots, Crops, Comments (Area repository?)
 
     public DataLoader() {
     }
 
-    // need to get rid of Long id in TextContent and children and then remove from below.
-    // changed Area to AreaType in Job model
 
     public void run(ApplicationArguments args) {
 
@@ -164,16 +161,16 @@ public class DataLoader implements ApplicationRunner {
         Knowhow knowhow2 = new Knowhow("13/01/2021", Andy, "Spring onions", "September is one of the busiest months with harvesting. It’s worth sowing some winter hardy spring onions ready for spring. I stick with White Lisbon, which never fails me, but make sure you get winter hardy.", Month.SEPTEMBER);
         knowhowRepository.save(knowhow2);
 
-        Knowhow knowhow3 = new Knowhow("25/04/2021", Mike, "Growing potatoes", "My lesson - not learned but taught by my next door neighbour is to make as much compost as you can.   I was amazed at my success with potatoes which were planted in rich soil with lots of compost in it.   I just stuck a few spuds in the ground and did nothing for three or four months and somehow managed to get a decent crop of healthy looking spuds!", Month.APRIL);
+        Knowhow knowhow3 = new Knowhow("25/04/2021", Mike, "Growing potatoes", "My lesson - not learned but taught by my next door neighbour is to make as much compost as you can. I was amazed at my success with potatoes which were planted in rich soil with lots of compost in it.", Month.APRIL);
         knowhowRepository.save(knowhow3);
 
-        Knowhow knowhow4 = new Knowhow("03/01/2021", Pauline, "Leeks", "Leeks left standing will be fine whatever the weather but you may find them hard to get out of frozen ground or taking up ground you want to dig or manure. In that case draw a shallow trench, dig up your leeks in good weather and trim the roots. Lay them in the trench at an angle so most of the leek is out of the trench and cover with loose soil. When you want some, just pull without any strain", Month.JANUARY);
+        Knowhow knowhow4 = new Knowhow("03/01/2021", Pauline, "Leeks", "Dig a shallow trench, dig up your leeks in good weather and trim the roots. Lay them in the trench at an angle so most of the leek is out of the trench and cover with loose soil. When you want some, just pull without any strain", Month.JANUARY);
         knowhowRepository.save(knowhow4);
 
         Knowhow knowhow5 = new Knowhow("13/02/2021", Pauline, "Parsnips", "Conventional advice is often to sow parsnips in Feb but I believe their reputation for poor germination rates is due to being placed in cold wet soil and I have had much better germination rates by sowing in March or even April.", Month.FEBRUARY);
         knowhowRepository.save(knowhow5);
 
-        Knowhow knowhow6 = new Knowhow("15/011/2020", AdministratorJanet, "Bean harvesting", "Your runner beans will be at the top of the canes in August so pinch out their growing tip to encourage bushier growth below. Pick all runner, climbing and dwarf beans regularly except for the haricot varieties such as Borlotti where we want the bean rather than pod for table.", Month.AUGUST);
+        Knowhow knowhow6 = new Knowhow("15/011/2020", AdministratorJanet, "Bean harvesting", "Your runner beans will be at the top of the canes in August so pinch out their growing tip to encourage bushier growth below. Pick all runner, climbing and dwarf beans regularly.", Month.AUGUST);
         knowhowRepository.save(knowhow6);
 
         Crop crop1 = new Crop("carrots");

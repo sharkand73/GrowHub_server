@@ -50,53 +50,74 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
 
-        User AdministratorJanet = new User("MadJan", "madjan@hotmail.co.uk", "madjanlovesjam", PositionType.ORDINARY, 2014);
+        //List of plot users
+
+        User AdministratorJanet = new User("MadJan", "madjan@hotmail.co.uk", "madjanlovesjam", PositionType.COMMUNICATIONS, 2014);
         userRepository.save(AdministratorJanet);
 
-        User Mike = new User("MikeP", "bigmike@hotmail.co.uk", "pingpong2356", PositionType.COMMUNICATIONS, 2017);
+        User Mike = new User("MikeP", "bigmike@hotmail.co.uk", "pingpong2356", PositionType.ORDINARY, 2017);
         userRepository.save(Mike);
 
-        User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.ORDINARY, 2016);
+        User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
         userRepository.save(Andy);
 
-        User Pauline = new User("PaulineB", "paulinelovescabbage@gmail", "whizkid763", PositionType.ORDINARY, 2017);
+        User Pauline = new User("PaulineB", "paulinelovescabbage@gmail", "whizkid763", PositionType.ORDINARY, 2016);
         userRepository.save(Pauline);
 
         User Brian = new User("BrianH", "mrlovemonster@gmail", "45lovemachine78", PositionType.ORDINARY, 2020);
         userRepository.save(Brian);
 
-        Plot plot1 = new Plot("Plot", 1, 5.4, 4.5, true);
+
+
+
+        //List of plots and communal areas (abstract class Area)
+
+        Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
         plotRepository.save(plot1);
 
-        Plot plot2 = new Plot("Plot",2, 5.50, 4.00, true);
+        Plot plot2 = new Plot("Plot 2",2, 5.50, 4.00, true);
         plotRepository.save(plot2);
 
-        Plot plot3 = new Plot("Plot",3, 6.90, 3.90, true);
+        Plot plot3 = new Plot("Plot 3",3, 6.90, 3.90, true);
         plotRepository.save(plot2);
 
-        Plot plot4 = new Plot("Plot",4, 6.00, 3.50, true);
+        Plot plot4 = new Plot("Plot 4",4, 6.00, 3.50, true);
         plotRepository.save(plot4);
 
-        Plot plot5 = new Plot("Plot",5, 6.10, 3.50, true);
+        Plot plot5 = new Plot("Plot 5",5, 6.10, 3.50, true);
         plotRepository.save(plot5);
 
-        Plot plot6 = new Plot("Plot",5, 7.00, 4.50, false);
+        Plot plot6 = new Plot("Plot 6",6, 7.00, 4.50, false);
         plotRepository.save(plot6);
 
-        Plot plot7 = new Plot("Plot",7, 7.10, 4.40, false);
+        Plot plot7 = new Plot("Plot 7",7, 7.10, 4.40, false);
         plotRepository.save(plot7);
 
-        Plot plot8 = new Plot("Plot",8, 7.00, 4.60, false);
+        Plot plot8 = new Plot("Plot 8",8, 7.00, 4.60, false);
         plotRepository.save(plot8);
 
-        Plot plot9 = new Plot("Plot",9, 6.90, 5.10, false);
+        Plot plot9 = new Plot("Plot 9",9, 6.90, 5.10, false);
         plotRepository.save(plot9);
 
-        Plot plot10 = new Plot("Plot",10, 6.20, 4.20, true);
+        Plot plot10 = new Plot("Plot 10",10, 6.20, 4.20, true);
         plotRepository.save(plot10);
 
         Communal communal1 = new Communal("Orchard", AreaType.ORCHARD, "20m2 area of fruit trees");
         communalRepository.save(communal1);
+
+        Communal communal2 = new Communal("Community Garden", AreaType.COMMUNITY_GARDEN, "Area for growing vegetables for the local community.");
+        communalRepository.save(communal2);
+
+        Communal communal3 = new Communal("Tool Shed", AreaType.CONTAINER, "Shed for storing communal tools.");
+        communalRepository.save(communal3);
+
+        Communal communal4 = new Communal("Toilet", AreaType.TOILET, "Ecological toilet.");
+        communalRepository.save(communal4);
+
+
+
+
+        // Gardening tips, categorised by month.
 
         Tip tip1 = new Tip("23/12/2020", AdministratorJanet, "New Year, new seeds!", "Place your seed order in January as it will soon be time to start sowing onions, cabbages, parsnips, leeks, sweet peas and calendula.", Month.JANUARY);
         tipRepository.save(tip1);
@@ -134,14 +155,22 @@ public class DataLoader implements ApplicationRunner {
         Tip tip12 = new Tip("28/04/2021", AdministratorJanet, "Can you dig it?", "If you love digging, on a dry day when the ground’s not frozen get out and turn the veg patch to let the frost in.", Month.DECEMBER);
         tipRepository.save(tip12);
 
-        Job job1 = new Job("04/02/2021", Mike,"Toilet door", "The toilet door has rotted beyond repair and needs to be replaced", communal1, "30/06/2021", 5);
+
+
+        // List of allotment jobs which require volunteers
+
+        Job job1 = new Job("04/02/2021", Mike,"Toilet door", "The toilet door lock has broken and needs to be replaced.", communal4, "30/06/2021", 5);
         jobRepository.save(job1);
 
-        Job job2 = new Job("31/05/2021", Mike,"Tip trip", "There is a pile of bundled rubbish that needs to go to the tip, unless someone can repurpose any of it?", communal1, "10/07/2021", 2);
+        Job job2 = new Job("31/05/2021", Mike,"Tip trip", "There is a pile of bundled rubbish that needs to go to the tip, unless someone can repurpose any of it?", communal3, "10/07/2021", 2);
         jobRepository.save(job2);
 
         Job job3 = new Job("31/05/2021", Mike,"Wheelbarrow tyres", "The communal wheelbarrows (x2) need their tyres pumped up. Does anyone have a pump and the elbow grease to do it?", communal1, "28/06/2021", 2);
         jobRepository.save(job3);
+
+
+
+        // List of bulletin items for the notice board
 
         BulletinItem news1 = new BulletinItem("01/11/2020", Andy, "Lecture - free to attend", "The Botanic Society of Scotland is holding a free online lecture called 'What plant is that? Are smartphone apps the answer?', on 19/11/2020. If anyone is interested go to https://www.botanical-society-scotland.org.uk/category/news-events/lectures");
         bulletinItemRepository.save(news1);
@@ -154,6 +183,11 @@ public class DataLoader implements ApplicationRunner {
 
         BulletinItem news4 = new BulletinItem("23/04/2021", Mike, "New water supply installed", "Good news! The new water supply has been installed by the containers. Well done to Mary of plot 3 and Carl of plot 42 who made it happen! Thank you!");
         bulletinItemRepository.save(news4);
+
+
+
+
+        // List of know-how items, recorded by plot holders.
 
         Knowhow knowhow1 = new Knowhow("23/09/2020", Andy, "Chitting potatoes", "Leave your potatoes out 6 weeks before planting to allow the shoots to grow", Month.FEBRUARY);
         knowhowRepository.save(knowhow1);
@@ -172,6 +206,10 @@ public class DataLoader implements ApplicationRunner {
 
         Knowhow knowhow6 = new Knowhow("15/011/2020", AdministratorJanet, "Bean harvesting", "Your runner beans will be at the top of the canes in August so pinch out their growing tip to encourage bushier growth below. Pick all runner, climbing and dwarf beans regularly.", Month.AUGUST);
         knowhowRepository.save(knowhow6);
+
+
+
+        // List of crops being grown by plotholders.
 
         Crop crop1 = new Crop("carrots");
         cropRepository.save(crop1);
@@ -233,14 +271,32 @@ public class DataLoader implements ApplicationRunner {
         Crop crop20 = new Crop("strawberries");
         cropRepository.save(crop20);
 
-        Comment comment1job1 = new Comment("11/02/2021", Pauline, "Toilet", "Could I suggest we use a shower curtain in the meantime? Secure the sides with clothes pegs", plot1);
-        commentRepository.save(comment1job1);
 
-        Comment comment2job3 = new Comment("02/06/2021", Brian, "Wheelbarrow tyres", "I have pump and can do it on Saturday", plot2);
-        commentRepository.save(comment2job3);
 
-        Comment comment3knowhow2 = new Comment("14/01/2021", Mike, "Also...", "I do the same myself Andy. You can also plant your sprouts now for Christmas", plot3);
-        commentRepository.save(comment3knowhow2);
+
+        // List of comments pertaining to plot history
+
+        Comment comment1 = new Comment("15/04/2018", Andy, "Paths", "Laid paths using weed fabric, metal pins and wood chips.", plot1);
+        commentRepository.save(comment1);
+
+        Comment comment2 = new Comment("12/05/2018", Andy, "Raised Beds", "Built 12 raised beds using scaffold boards.  They have a life of 5-8 years.", plot1);
+        commentRepository.save(comment2);
+
+        Comment comment3 = new Comment("06/04/2020", Andy, "Pond", "Built small pond using plastic sheeting and rocks", plot1);
+        commentRepository.save(comment3);
+
+
+
+        
+//        Comment comment1job1 = new Comment("11/02/2021", Pauline, "Toilet", "Could I suggest we use a shower curtain in the meantime? Secure the sides with clothes pegs", plot1);
+//        commentRepository.save(comment1job1);
+//
+//        Comment comment2job3 = new Comment("02/06/2021", Brian, "Wheelbarrow tyres", "I have pump and can do it on Saturday", plot2);
+//        commentRepository.save(comment2job3);
+//
+//        Comment comment3knowhow2 = new Comment("14/01/2021", Mike, "Also...", "I do the same myself Andy. You can also plant your sprouts now for Christmas", plot3);
+//        commentRepository.save(comment3knowhow2);
+
 
         // Does a comment really need the plot stated? It already has a user and should we know the plot through the user?
         // At the moment I can't tell which plot to give the comments anyway as I'm not sure which user has which plot?

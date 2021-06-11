@@ -29,6 +29,9 @@ public class User {
     private PositionType position;
 
     @Column
+    private boolean onCommittee;
+
+    @Column
     private int yearJoined;
 
     @Column
@@ -80,12 +83,14 @@ public class User {
         this.email = email;
         this.password = password;
         this.position = position;
+        this.onCommittee = isOnCommittee();
         this.yearJoined = yearJoined;
         this.yearLeft = 0;
         this.crops = new ArrayList<>();
         this.plots = new ArrayList<>();
         this.jobs = new ArrayList<>();
         this.id = id;
+
     }
 
     public User() {
@@ -121,6 +126,14 @@ public class User {
 
     public void setPosition(PositionType position) {
         this.position = position;
+    }
+
+    public boolean getOnCommittee() {
+        return onCommittee;
+    }
+
+    public void setOnCommittee(boolean onCommittee) {
+        this.onCommittee = onCommittee;
     }
 
     public int getYearJoined() {

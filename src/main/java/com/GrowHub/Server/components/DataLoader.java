@@ -17,6 +17,9 @@ import java.util.ArrayList;
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
+    AllotmentSettingsRepository allotmentSettingsRepository;
+
+    @Autowired
     UserRepository userRepository;
 
     @Autowired
@@ -50,7 +53,15 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
 
-        //List of plot users
+        // Global settings for this allotment
+
+        AllotmentSettings lambhillSettings = new AllotmentSettings("Lambhill Allotments", "Glasgow", "GBR", "55.8926,-4.2607", "0d820993802bd0122435be9caac2043d", "./map.svg" );
+        allotmentSettingsRepository.save(lambhillSettings);
+
+
+
+
+        // List of plot users
 
         User AdministratorJanet = new User("MadJan", "madjan@hotmail.co.uk", "madjanlovesjam", PositionType.COMMUNICATIONS, 2014);
         userRepository.save(AdministratorJanet);
@@ -70,7 +81,7 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        //List of plots and communal areas (abstract class Area)
+        // List of plots and communal areas (abstract class Area)
 
         Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
         plotRepository.save(plot1);
@@ -287,7 +298,7 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        
+
 //        Comment comment1job1 = new Comment("11/02/2021", Pauline, "Toilet", "Could I suggest we use a shower curtain in the meantime? Secure the sides with clothes pegs", plot1);
 //        commentRepository.save(comment1job1);
 //

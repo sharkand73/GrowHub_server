@@ -11,21 +11,28 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column
     private String shortName;
+
     @Column
     private String email;
+
     @Column
     private String password;
+
     @Column
     private PositionType position;
+
     @Column
     private boolean onCommittee;
 
     @Column
     private int yearJoined;
+
     @Column
     private int yearLeft;
+
     @JsonIgnoreProperties(value = "users")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -38,6 +45,7 @@ public class User {
             }
     )
     private List<Plot> plots;
+
     @JsonIgnoreProperties(value = "users")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -50,6 +58,7 @@ public class User {
             }
     )
     private List<Job> jobs;
+
     @JsonIgnoreProperties(value = "users")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -61,6 +70,7 @@ public class User {
                     @JoinColumn(name = "crop_id", nullable = false, updatable = false)
             }
     )
+
     private List<Crop> crops;
     //CONSTRUCTOR
     public User(String shortName, String email, String password, PositionType position, int yearJoined) {

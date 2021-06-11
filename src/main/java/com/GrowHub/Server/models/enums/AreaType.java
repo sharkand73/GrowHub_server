@@ -8,6 +8,6 @@ public enum AreaType {
     TOILET,
     CONTAINER,
     WILLOW,
-    OTHER
+    OTHER;
 
 }

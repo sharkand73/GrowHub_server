@@ -8,6 +8,6 @@ public enum PositionType {
     SECRETARY,
     TREASURER,
     COMMUNICATIONS,
-    ORDINARY
+    ORDINARY;
 
 }

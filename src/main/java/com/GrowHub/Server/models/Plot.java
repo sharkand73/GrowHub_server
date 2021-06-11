@@ -50,7 +50,7 @@ public class Plot extends Area{
         this.isFlat = isFlat;
     }
 
-    public Plot(AreaType plot, int plotNumber, double length, double breadth, boolean isFlat) {
+    public Plot() {
     }
 
     public int getPlotNumber() {

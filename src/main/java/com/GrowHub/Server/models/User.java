@@ -5,9 +5,11 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 @Entity
 @Table(name="users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -70,8 +72,12 @@ public class User {
                     @JoinColumn(name = "crop_id", nullable = false, updatable = false)
             }
     )
-
     private List<Crop> crops;
+
+    @JsonIgnoreProperties(value = "author")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
+    private List<Reply> replies;
+
     //CONSTRUCTOR
     public User(String shortName, String email, String password, PositionType position, int yearJoined) {
         this.shortName = shortName;
@@ -85,6 +91,7 @@ public class User {
         this.plots = new ArrayList<>();
         this.jobs = new ArrayList<>();
         this.id = id;
+        this.replies = new ArrayList<>();
 
     }
     public User() {
@@ -161,5 +168,13 @@ public class User {
     }
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Reply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Reply> replies) {
+        this.replies = replies;
     }
 }

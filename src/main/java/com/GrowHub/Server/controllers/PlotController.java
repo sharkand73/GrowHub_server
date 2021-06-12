@@ -38,7 +38,7 @@ public class PlotController {
     }
 
     // decided to leave out delete and post mappings as its assumed the allotment
-    // is static and plots won't be added or removed
+    // is static and plots won't be added or removed, same with communal
 
 
 }

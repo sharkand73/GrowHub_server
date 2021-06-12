@@ -84,9 +84,11 @@ public class DataLoader implements ApplicationRunner {
         // List of plots and communal areas (abstract class Area)
 
         Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
+        plot1.addUser(Andy);
         plotRepository.save(plot1);
 
         Plot plot2 = new Plot("Plot 2",2, 5.50, 4.00, true);
+        plot2.addUser(Andy);
         plotRepository.save(plot2);
 
         Plot plot3 = new Plot("Plot 3",3, 6.90, 3.90, true);

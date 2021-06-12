@@ -37,5 +37,8 @@ public class PlotController {
         return new ResponseEntity<>(plotToUpdate, HttpStatus.OK);
     }
 
+    // decided to leave out delete and post mappings as its assumed the allotment
+    // is static and plots won't be added or removed
+
 
 }

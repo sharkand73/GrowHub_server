@@ -55,4 +55,15 @@ class ServerApplicationTests {
 		plot1.removeUser(Andy);
 		assertEquals(0, plot1.getUsers().size());
 	}
+
+	@Test
+	void cannotRemoveUserFromPlotIfNotThere() {
+		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		User Mike = new User("MikeP", "bigmike@hotmail.co.uk", "pingpong2356", PositionType.ORDINARY, 2017);
+		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
+		plot1.addUser(Andy);
+		plot1.removeUser(Mike);
+		assertEquals(1, plot1.getUsers().size());
+	}
+
 }

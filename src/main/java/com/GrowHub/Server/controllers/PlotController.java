@@ -34,6 +34,7 @@ public class PlotController {
         plotToUpdate.setUsers(plot.getUsers());
         plotToUpdate.setComments(plot.getComments());
         plotToUpdate.setJobs(plot.getJobs());
+        plotRepository.save(plotToUpdate);
         return new ResponseEntity<>(plotToUpdate, HttpStatus.OK);
     }
 

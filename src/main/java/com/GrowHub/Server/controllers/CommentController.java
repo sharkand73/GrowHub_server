@@ -38,6 +38,7 @@ public class CommentController {
         commentToUpdate.setBody(comment.getBody());
         commentToUpdate.setDate(comment.getDate());
         commentToUpdate.setTitle(comment.getTitle());
+        commentRepository.save(commentToUpdate);
         return new ResponseEntity<>(commentToUpdate, HttpStatus.OK);
     }
 

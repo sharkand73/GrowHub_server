@@ -38,6 +38,7 @@ public class KnowhowController {
         knowhowToUpdate.setDate(knowhow.getDate());
         knowhowToUpdate.setTitle(knowhow.getTitle());
         knowhowToUpdate.setMonth(knowhow.getMonth());
+        knowhowRepository.save(knowhowToUpdate);
         return new ResponseEntity<>(knowhowToUpdate, HttpStatus.OK);
     }
 

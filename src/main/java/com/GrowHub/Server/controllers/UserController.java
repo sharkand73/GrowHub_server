@@ -41,6 +41,7 @@ public class UserController {
         foundUser.setShortName(user.getShortName());
         foundUser.setYearJoined(user.getYearJoined());
         foundUser.setYearLeft(user.getYearLeft());
+        userRepository.save(foundUser);
         return new ResponseEntity<>(foundUser, HttpStatus.OK);
     }
 

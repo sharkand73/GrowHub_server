@@ -30,6 +30,7 @@ public class BulletinController {
         bulletinToUpdate.setBody(bulletin.getBody());
         bulletinToUpdate.setDate(bulletin.getDate());
         bulletinToUpdate.setTitle(bulletin.getTitle());
+        bulletinItemRepository.save(bulletinToUpdate);
         return new ResponseEntity<>(bulletinToUpdate, HttpStatus.OK);
     }
 

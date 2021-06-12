@@ -35,6 +35,7 @@ public class CropController {
         Crop cropToUpdate = cropRepository.findById(id).get();
         cropToUpdate.setUsers(crop.getUsers());
         cropToUpdate.setName(crop.getName());
+        cropRepository.save(cropToUpdate);
         return new ResponseEntity<>(cropToUpdate, HttpStatus.OK);
     }
 

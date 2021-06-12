@@ -31,6 +31,7 @@ public class CommunalController {
         communalToUpdate.setPlotNumbers(communal.getPlotNumbers());
         communalToUpdate.setAreaName(communal.getAreaName());
         communalToUpdate.setJobs(communal.getJobs());
+        communalRepository.save(communalToUpdate);
         return new ResponseEntity<>(communalToUpdate, HttpStatus.OK);
     }
 

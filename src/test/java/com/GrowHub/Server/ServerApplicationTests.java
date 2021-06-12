@@ -89,4 +89,19 @@ class ServerApplicationTests {
 
 	}
 
+	@Test
+	void canFindPlotsBelongingToUser() {
+		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		userRepository.save(Andy);
+		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
+		plot1.addUser(Andy);
+		plotRepository.save(plot1);
+		Plot plot2 = new Plot("Plot 2",2, 5.50, 4.00, true);
+		plot2.addUser(Andy);
+		plotRepository.save(plot2);
+
+		List<Plot> foundPlots = plotRepository.findByUsersShortName("AndyS");
+		assertEquals(2, foundPlots.size());
+
+	}
 }

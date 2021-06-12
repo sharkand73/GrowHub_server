@@ -35,8 +35,15 @@ class ServerApplicationTests {
 		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
 		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
 		plot1.addUser(Andy);
-
 		assertEquals(1, plot1.getUsers().size());
+	}
 
+	@Test
+	void cannotAddUserToPlotIfAlreadyThere() {
+		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
+		plot1.addUser(Andy);
+		plot1.addUser(Andy);
+		assertEquals(1, plot1.getUsers().size());
 	}
 }

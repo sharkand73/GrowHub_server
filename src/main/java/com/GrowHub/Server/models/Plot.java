@@ -101,4 +101,16 @@ public class Plot extends Area{
         this.users = users;
     }
 
+    public void addUser(User user) {
+        if (!this.users.contains(user)) {
+            this.users.add(user);
+        }
+    }
+
+    public void removeUser(User user) {
+        if (this.users.contains(user)) {
+            this.users.remove(user);
+        }
+    }
+
 }

@@ -80,25 +80,25 @@ class ServerApplicationTests {
 		assertEquals(1, plot1.getUsers().size());
 	}
 
-//	@Test
-//	void canFindUsersByPlotNumber() {
-//		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
-//		userRepository.save(Andy);
-//		User Pauline = new User("PaulineB", "paulinelovescabbage@gmail", "whizkid763", PositionType.ORDINARY, 2016);
-//		userRepository.save(Pauline);
-//		User Brian = new User("BrianH", "mrlovemonster@gmail", "45lovemachine78", PositionType.ORDINARY, 2020);
-//		userRepository.save(Brian);
-//
-//		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
-//		plot1.addUser(Andy);
-//		plot1.addUser(Pauline);
-//		plot1.addUser(Brian);
-//		plotRepository.save(plot1);
-//
-//		List<User> foundUsers = userRepository.findByPlotsPlotNumber(1);
-//		assertEquals(3, foundUsers.size());
-//
-//	}
+	@Test
+	void canFindUsersByPlotNumber() {
+		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		userRepository.save(Andy);
+		User Pauline = new User("PaulineB", "paulinelovescabbage@gmail", "whizkid763", PositionType.ORDINARY, 2016);
+		userRepository.save(Pauline);
+		User Brian = new User("BrianH", "mrlovemonster@gmail", "45lovemachine78", PositionType.ORDINARY, 2020);
+		userRepository.save(Brian);
+
+		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
+		plot1.addUser(Andy);
+		plot1.addUser(Pauline);
+		plot1.addUser(Brian);
+		plotRepository.save(plot1);
+
+		List<User> foundUsers = userRepository.findByPlotsPlotNumber(1);
+		assertEquals(3, foundUsers.size());
+
+	}
 
 	@Test
 	void canFindPlotsBelongingToUser() {

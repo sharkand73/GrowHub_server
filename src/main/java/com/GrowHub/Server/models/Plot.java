@@ -34,10 +34,10 @@ public class Plot extends Area{
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
             joinColumns = {
-                    @JoinColumn(name = "plot_id", nullable = false, updatable = false)
+                    @JoinColumn(name = "plot_id", nullable = false, updatable = true)
             },
             inverseJoinColumns = {
-                    @JoinColumn(name = "user_id", nullable = false, updatable = false )
+                    @JoinColumn(name = "user_id", nullable = false, updatable = true )
             }
     )
     private List<User> users;

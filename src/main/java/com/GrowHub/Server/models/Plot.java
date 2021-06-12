@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -48,6 +49,8 @@ public class Plot extends Area{
         this.length = length;
         this.breadth = breadth;
         this.isFlat = isFlat;
+        this.users = new ArrayList<>();
+        this.comments = new ArrayList<>();
     }
 
     public Plot() {
@@ -112,5 +115,17 @@ public class Plot extends Area{
             this.users.remove(user);
         }
     }
+
+    public void addComment(Comment comment) {
+            this.comments.add(comment);
+    }
+
+    public void removeComment(Comment comment) {
+        if (this.comments.contains(comment)) {
+            this.comments.remove(comment);
+        }
+    }
+
+
 
 }

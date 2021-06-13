@@ -78,7 +78,14 @@ public class DataLoader implements ApplicationRunner {
         User Brian = new User("BrianH", "mrlovemonster@gmail", "45lovemachine78", PositionType.ORDINARY, 2020);
         userRepository.save(Brian);
 
+        User Colin = new User("Cozza", "cozzamozza@gmail", "greyhound", PositionType.ORDINARY, 2021);
+        userRepository.save(Colin);
 
+        User Katy = new User("KT123", "bobcurrie@gmail", "cocktail", PositionType.ORDINARY, 2021);
+        userRepository.save(Katy);
+
+        User Gabriel = new User("Gabe89", "gneil@gmail", "bassguitar", PositionType.ORDINARY, 2021);
+        userRepository.save(Gabriel);
 
 
         // List of plots and communal areas (abstract class Area)
@@ -90,30 +97,42 @@ public class DataLoader implements ApplicationRunner {
 
         Plot plot2 = new Plot("Plot 2",2, 5.50, 4.00, true);
         plot2.addUser(Andy);
+        plot2.addUser(AdministratorJanet);
         plotRepository.save(plot2);
 
         Plot plot3 = new Plot("Plot 3",3, 6.90, 3.90, true);
+        plot3.addUser(Mike);
+        plot3.addUser(AdministratorJanet);
+        plot3.addUser(Pauline);
         plotRepository.save(plot3);
 
         Plot plot4 = new Plot("Plot 4",4, 6.00, 3.50, true);
+        plot4.addUser(Pauline);
         plotRepository.save(plot4);
 
         Plot plot5 = new Plot("Plot 5",5, 6.10, 3.50, true);
+        plot5.addUser(Brian);
         plotRepository.save(plot5);
 
         Plot plot6 = new Plot("Plot 6",6, 7.00, 4.50, false);
+        plot6.addUser(Gabriel);
         plotRepository.save(plot6);
 
         Plot plot7 = new Plot("Plot 7",7, 7.10, 4.40, false);
+        plot7.addUser(Colin);
         plotRepository.save(plot7);
 
         Plot plot8 = new Plot("Plot 8",8, 7.00, 4.60, false);
+        plot8.addUser(Colin);
+        plot8.addUser(Andy);
         plotRepository.save(plot8);
 
         Plot plot9 = new Plot("Plot 9",9, 6.90, 5.10, false);
+        plot9.addUser(Katy);
         plotRepository.save(plot9);
 
         Plot plot10 = new Plot("Plot 10",10, 6.20, 4.20, true);
+        plot10.addUser(Katy);
         plotRepository.save(plot10);
 
         Communal communal1 = new Communal("Orchard", AreaType.ORCHARD, "20m2 area of fruit trees");

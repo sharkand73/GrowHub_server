@@ -1,11 +1,14 @@
 package com.GrowHub.Server.controllers;
 
+import com.GrowHub.Server.models.Plot;
 import com.GrowHub.Server.models.User;
 import com.GrowHub.Server.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -52,5 +55,9 @@ public class UserController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-
+    @GetMapping(value = "/users/plots/{plotNumber}")
+    public ResponseEntity<User> findByPlotsPlotNumber(@PathVariable int plotNumber){
+        List<User> foundUsers = userRepository.findByPlotsPlotNumber(plotNumber);
+        return new ResponseEntity(foundUsers, HttpStatus.OK);
+    }
 }

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class PlotController {
 
@@ -37,6 +39,15 @@ public class PlotController {
         plotRepository.save(plotToUpdate);
         return new ResponseEntity<>(plotToUpdate, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/plots/users/{shortName}")
+    public ResponseEntity<Plot> findByUsersShortName(@PathVariable String shortName){
+        List<Plot> foundPlots = plotRepository.findByUsersShortName(shortName);
+        return new ResponseEntity(foundPlots, HttpStatus.OK);
+    }
+
+
+
 
     // decided to leave out delete and post mappings as its assumed the allotment
     // is static and plots won't be added or removed, same with communal

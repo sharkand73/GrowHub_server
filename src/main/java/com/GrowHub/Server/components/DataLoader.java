@@ -87,6 +87,7 @@ public class DataLoader implements ApplicationRunner {
         plot1.addUser(Andy);
         plotRepository.save(plot1);
 
+
         Plot plot2 = new Plot("Plot 2",2, 5.50, 4.00, true);
         plot2.addUser(Andy);
         plotRepository.save(plot2);

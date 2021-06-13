@@ -1,5 +1,6 @@
 package com.GrowHub.Server.models;
 import com.GrowHub.Server.models.enums.PositionType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
@@ -39,19 +40,21 @@ public class User {
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
+            name = "users_plots",
             joinColumns = {
-                    @JoinColumn(name = "user_id", nullable = false, updatable = true)
+                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
             },
             inverseJoinColumns = {
-                    @JoinColumn(name = "plot_id", nullable = false, updatable = true)
+                    @JoinColumn(name = "plot_id", nullable = false, updatable = false)
             }
     )
     private List<Plot> plots;
 
-    @JsonIgnoreProperties(value = "users")
+    @JsonBackReference
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
+            name = "plots_jobs",
             joinColumns = {
                     @JoinColumn(name = "user_id", nullable = false, updatable = false)
             },
@@ -65,6 +68,7 @@ public class User {
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
+            name = "users_crops",
             joinColumns = {
                     @JoinColumn(name = "user_id", nullable = false, updatable = false)
             },
@@ -177,4 +181,13 @@ public class User {
     public void setReplies(List<Reply> replies) {
         this.replies = replies;
     }
+
+//    public void addPlot(Plot plot){
+//        this.plots.add(plot);
+//    }
+//    public void removePlot(Plot plot){
+//        this.plots.remove(plot);
+//    }
+
+
 }

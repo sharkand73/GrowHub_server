@@ -12,12 +12,13 @@ import javax.persistence.Table;
 @Table
 public class Comment extends TextContent{
 
-    //CONSTRUCTOR
+
     @JsonIgnoreProperties(value="comments")
     @ManyToOne
     @JoinColumn(name="plot_id", nullable = false)
     private Plot plot;
 
+    //CONSTRUCTOR
     public Comment(String date, User author, String title, String body, Plot plot) {
         super(date, author, title, body);
         this.plot = plot;

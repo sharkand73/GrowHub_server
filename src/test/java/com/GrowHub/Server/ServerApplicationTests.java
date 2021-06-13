@@ -50,6 +50,7 @@ class ServerApplicationTests {
 		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
 		plot1.addUser(Andy);
 		assertEquals(1, plot1.getUsers().size());
+		//assertEquals(1, Andy.getPlots().size());
 	}
 
 	@Test
@@ -126,4 +127,12 @@ class ServerApplicationTests {
 		jobRepository.save(job1);
 
 	}
+
+//	@Test
+//	void canAddPlotToUser() {
+//		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
+//		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+//		Andy.addPlot(plot1);
+//		assertEquals(1, Andy.getPlots().size());
+//	}
 }

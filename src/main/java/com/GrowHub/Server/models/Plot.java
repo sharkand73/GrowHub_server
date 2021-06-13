@@ -1,6 +1,7 @@
 package com.GrowHub.Server.models;
 
 import com.GrowHub.Server.models.enums.AreaType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
@@ -25,19 +26,20 @@ public class Plot extends Area{
     @Column
     private boolean isFlat;
 
-    @JsonIgnoreProperties(value="plot")
+    @JsonBackReference
     @OneToMany(mappedBy = "plot", fetch = FetchType.LAZY)
     private List<Comment> comments;
 
-    @JsonIgnoreProperties(value="plots")
+    @JsonBackReference
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
+            name = "users_plots",
             joinColumns = {
-                    @JoinColumn(name = "plot_id", nullable = false, updatable = true)
+                    @JoinColumn(name = "plot_id", nullable = false, updatable = false)
             },
             inverseJoinColumns = {
-                    @JoinColumn(name = "user_id", nullable = false, updatable = true )
+                    @JoinColumn(name = "user_id", nullable = false, updatable = false )
             }
     )
     private List<User> users;
@@ -107,6 +109,7 @@ public class Plot extends Area{
     public void addUser(User user) {
         if (!this.users.contains(user)) {
             this.users.add(user);
+            //user.addPlot(this);   // I was required to force this as Spring wasn't doing it.
         }
     }
 

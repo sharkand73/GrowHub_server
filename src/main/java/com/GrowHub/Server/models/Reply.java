@@ -20,7 +20,7 @@ public class Reply {
     private String date;
 
     @JsonIgnoreProperties(value = "replies")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
     private User author;
 

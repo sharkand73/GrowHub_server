@@ -1,7 +1,9 @@
 package com.GrowHub.Server.models;
 import com.GrowHub.Server.models.enums.PositionType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -78,13 +80,23 @@ public class User {
     )
     private List<Crop> crops;
 
-    @JsonBackReference(value = "user")
+//    @JsonBackReference(value = "users")
+    @JsonIgnoreProperties(value="author")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Reply> replies;
 
-    @JsonIgnoreProperties(value = "user")
+//    @JsonBackReference(value = "text_users")
+    @JsonIgnoreProperties(value = "author")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
-    private List<TextContent> textContents;
+    private List<Job> jobs;
+
+    @JsonIgnoreProperties(value = "author")
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    private List<BulletinItem> bulletinItems;
+
+    @JsonIgnoreProperties(value = "author")
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    private List<Knowhow> knowhows;
 
     //CONSTRUCTOR
     public User(String shortName, String email, String password, PositionType position, int yearJoined) {
@@ -97,9 +109,10 @@ public class User {
         this.yearLeft = 0;
         this.crops = new ArrayList<>();
         this.plots = new ArrayList<>();
-//        this.jobs = new ArrayList<>();
         this.replies = new ArrayList<>();
-        this.textContents = new ArrayList<>();
+        this.knowhows = new ArrayList<>();
+        this.bulletinItems = new ArrayList<>();
+        this.jobs = new ArrayList<>();
 
     }
     public User() {
@@ -187,16 +200,32 @@ public class User {
         this.replies = replies;
     }
 
-    public List<TextContent> getTextContents() {
-        return textContents;
-    }
-
-    public void setTextContents(List<TextContent> textContents) {
-        this.textContents = textContents;
-    }
-
     public void addReply(Reply reply){
         replies.add(reply);
+    }
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
+
+    public List<BulletinItem> getBulletinItems() {
+        return bulletinItems;
+    }
+
+    public void setBulletinItems(List<BulletinItem> bulletinItems) {
+        this.bulletinItems = bulletinItems;
+    }
+
+    public List<Knowhow> getKnowhows() {
+        return knowhows;
+    }
+
+    public void setKnowhows(List<Knowhow> knowhows) {
+        this.knowhows = knowhows;
     }
 
     //    public void addPlot(Plot plot){

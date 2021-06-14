@@ -131,8 +131,8 @@ class ServerApplicationTests {
 		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
 		userRepository.save(Andy);
 
-		Reply reply1 = new Reply("Wow that's some good info", "16/06/2021", Andy);
-		replyRepository.save(reply1);
+//		Reply reply1 = new Reply("Wow that's some good info", "16/06/2021", Andy, knowHow);
+//		replyRepository.save(reply1);
 	}
 
 //	@Test

@@ -324,9 +324,11 @@ public class DataLoader implements ApplicationRunner {
 
         // List of replies
 
-        Reply reply1 = new Reply("Wow that's some good info", "16/06/2021", Andy);
+        Reply reply1 = new Reply("Wow that's some good info", "16/06/2021", Pauline, knowhow1);
         replyRepository.save(reply1);
-        Andy.addReply(reply1);
+        Reply reply2 = new Reply("Thanks :) I stole it.", "16/06/2021", Andy, knowhow1);
+        replyRepository.save(reply2);
+
 
 
 

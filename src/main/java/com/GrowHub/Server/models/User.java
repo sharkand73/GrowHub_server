@@ -99,7 +99,6 @@ public class User {
         this.email = email;
         this.password = password;
         this.position = position;
-//        this.onCommittee = isOnCommittee();
         this.yearJoined = yearJoined;
         this.yearLeft = 0;
         this.crops = new ArrayList<>();
@@ -168,7 +167,7 @@ public class User {
     public void setYearLeft(int yearLeft) {
         this.yearLeft = yearLeft;
     }
-    
+
     public List<Plot> getPlots() {
         return plots;
     }

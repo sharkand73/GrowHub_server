@@ -21,15 +21,9 @@ public abstract class Area {
     @Column
     private String areaName;
 
-    @JsonIgnoreProperties(value="area")
-    @OneToMany(mappedBy = "area", fetch=FetchType.LAZY)
-    private List<Job> jobs;
-
-
     //CONSTRUCTOR
     public Area(String areaName) {
         this.areaName = areaName;
-        this.jobs = new ArrayList<>();
     }
 
     public Area() {
@@ -50,14 +44,5 @@ public abstract class Area {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public List<Job> getJobs() {
-        return jobs;
-    }
-
-    public void setJobs(List<Job> jobs) {
-        this.jobs = jobs;
-    }
-
 
 }

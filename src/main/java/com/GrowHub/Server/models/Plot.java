@@ -26,11 +26,13 @@ public class Plot extends Area{
     @Column
     private boolean isFlat;
 
-    @JsonBackReference(value="plot")
+//    @JsonBackReference(value="plot") //
+    @JsonIgnoreProperties(value="plots")
     @OneToMany(mappedBy = "plot", fetch = FetchType.LAZY)
     private List<Comment> comments;
 
-    @JsonBackReference
+//    @JsonBackReference(value="plots") // this one works for knowhows, but not for jobs
+    @JsonIgnoreProperties(value = "plots")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -128,6 +130,9 @@ public class Plot extends Area{
             this.comments.remove(comment);
         }
     }
+
+
+
 
 
 

@@ -34,7 +34,7 @@ public class JobController {
     public ResponseEntity putJob(@RequestBody Job job, @PathVariable Long id){
         Job jobToUpdate = jobRepository.findById(id).get();
 //        jobToUpdate.setUsers(job.getUsers());
-        jobToUpdate.setArea(job.getArea());
+        jobToUpdate.setCommunal(job.getCommunal());
         jobToUpdate.setDeadline(job.getDeadline());
         jobToUpdate.setDifficulty(job.getDifficulty());
         jobToUpdate.setAuthor(job.getAuthor());

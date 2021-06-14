@@ -1,6 +1,7 @@
 package com.GrowHub.Server.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Entity;
@@ -9,19 +10,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="comments")
 public class Comment extends TextContent{
 
 
     @JsonIgnoreProperties(value="comments")
+//    @JsonBackReference(value="comments_plot")
     @ManyToOne
     @JoinColumn(name="plot_id", nullable = false)
     private Plot plot;
 
+//    @JsonIgnoreProperties(value = "comments")
+    @JsonBackReference(value="comments_author")
+    @ManyToOne
+    @JoinColumn(name="author_id", nullable = false)
+    private User author;
+
     //CONSTRUCTOR
     public Comment(String date, User author, String title, String body, Plot plot) {
-        super(date, author, title, body);
+        super(date, title, body);
         this.plot = plot;
+        this.author = author;
     }
 
     public Comment() {
@@ -33,5 +42,13 @@ public class Comment extends TextContent{
 
     public void setPlot(Plot plot) {
         this.plot = plot;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }

@@ -16,16 +16,16 @@ import java.util.List;
 @Table(name="jobs")
 public class Job extends TextContent{
 
-    @JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
-    @JsonSubTypes({
-            @JsonSubTypes.Type(value = Plot.class, name = "plot"),
-            @JsonSubTypes.Type(value = Communal.class, name = "communal")
-    })
+//    @JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+//    @JsonSubTypes({
+//            @JsonSubTypes.Type(value = Plot.class, name = "plot"),
+//            @JsonSubTypes.Type(value = Communal.class, name = "communal")
+//    })
 
     @JsonIgnoreProperties(value="jobs")
     @ManyToOne
-    @JoinColumn(name="area_id", nullable = false)
-    private Area area;
+    @JoinColumn(name="communal_id", nullable = false)
+    private Communal communal;
 
     @Column
     private String deadline;
@@ -44,14 +44,24 @@ public class Job extends TextContent{
 //                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
 //            }
 //    )
-//    private List<User> users;
+//    private List<User> jobUsers;
+
+    @JsonIgnoreProperties(value = "jobs")
+    @ManyToOne
+    @JoinColumn(name="author_id", nullable = false)
+    private User author;
+
+    @Column
+    private ArrayList carrots;
 
     //CONSTRUCTOR
-    public Job(String date, User author, String title, String body, Area area, String deadline, int difficulty) {
-        super(date, author, title, body);
-        this.area = area;
+    public Job(String date, User author, String title, String body, Communal communal, String deadline, int difficulty, ArrayList carrots) {
+        super(date, title, body);
+        this.communal = communal;
         this.deadline = deadline;
         this.difficulty = difficulty;
+        this.author = author;
+        this.carrots = carrots;
 //        this.users = new ArrayList<>();
     }
 
@@ -59,12 +69,12 @@ public class Job extends TextContent{
 
     }
 
-    public Area getArea() {
-        return area;
+    public Communal getCommunal() {
+        return communal;
     }
 
-    public void setArea(Area area) {
-        this.area = area;
+    public void setCommunal(Communal communal) {
+        this.communal = communal;
     }
 
     public String getDeadline() {
@@ -92,5 +102,19 @@ public class Job extends TextContent{
 //    }
 
 
+    public User getAuthor() {
+        return author;
+    }
 
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public ArrayList getCarrots() {
+        return carrots;
+    }
+
+    public void setCarrots(ArrayList carrots) {
+        this.carrots = carrots;
+    }
 }

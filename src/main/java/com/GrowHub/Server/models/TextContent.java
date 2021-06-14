@@ -3,11 +3,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "text_contents")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class TextContent {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,24 +18,22 @@ public abstract class TextContent {
     @Column
     private String date;
 
-//    @JsonBackReference
-    @JsonIgnoreProperties(value = "text_contents")
-    @ManyToOne
-    @JoinColumn(name="author_id", nullable = false)
-    private User author;
-
     @Column
     private String title;
 
     @Column
     private String body;
 
+    @JsonIgnoreProperties(value="textContent")
+    @OneToMany(mappedBy = "textContent", fetch = FetchType.LAZY)
+    private List<Reply> replies;
+
     //CONSTRUCTOR
-    public TextContent(String date, User author, String title, String body) {
+    public TextContent(String date, String title, String body) {
         this.date = date;
-        this.author = author;
         this.title = title;
         this.body = body;
+        this.replies = new ArrayList<>();
     }
 
     public TextContent() {
@@ -54,14 +55,6 @@ public abstract class TextContent {
         this.date = date;
     }
 
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -76,5 +69,13 @@ public abstract class TextContent {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public List<Reply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Reply> replies) {
+        this.replies = replies;
     }
 }

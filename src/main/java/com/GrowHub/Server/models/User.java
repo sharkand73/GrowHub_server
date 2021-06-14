@@ -234,6 +234,17 @@ public class User {
 //        this.plots.remove(plot);
 //    }
 
+    public void addBulletinItem(BulletinItem bulletinItem){
+        this.bulletinItems.add(bulletinItem);
+    }
+
+    public void addJob(Job job){
+        this.jobs.add(job);
+    }
+
+    public void addKnowhow(Knowhow knowhow){
+        this.knowhows.add(knowhow);
+    }
 
 
 }

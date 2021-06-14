@@ -59,5 +59,9 @@ public abstract class Area {
         this.jobs = jobs;
     }
 
+    public void addJob(Job job){
+        this.jobs.add(job);
+    }
+
 
 }

@@ -46,6 +46,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     CommentRepository commentRepository;
 
+    @Autowired
+    ReplyRepository replyRepository;
+
 
     public DataLoader() {
     }
@@ -318,6 +321,12 @@ public class DataLoader implements ApplicationRunner {
         Comment comment3 = new Comment("06/04/2020", Andy, "Pond", "Built small pond using plastic sheeting and rocks", plot1);
         commentRepository.save(comment3);
 
+
+        // List of replies
+
+        Reply reply1 = new Reply("Wow that's some good info", "16/06/2021", Andy);
+        replyRepository.save(reply1);
+        Andy.addReply(reply1);
 
 
 

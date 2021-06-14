@@ -1,5 +1,6 @@
 package com.GrowHub.Server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -24,7 +25,6 @@ public class Reply {
     private User author;
 
     public Reply(String body, String date, User author) {
-        this.id = id;
         this.body = body;
         this.date = date;
         this.author = author;
@@ -65,4 +65,7 @@ public class Reply {
     public void setAuthor(User author) {
         this.author = author;
     }
+
+
+
 }

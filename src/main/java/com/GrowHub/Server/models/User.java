@@ -13,7 +13,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column
     private String shortName;
@@ -78,9 +78,13 @@ public class User {
     )
     private List<Crop> crops;
 
-    @JsonIgnoreProperties(value = "author")
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
+    @JsonBackReference(value = "user")
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Reply> replies;
+
+    @JsonIgnoreProperties(value = "user")
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    private List<TextContent> textContents;
 
     //CONSTRUCTOR
     public User(String shortName, String email, String password, PositionType position, int yearJoined) {
@@ -94,8 +98,8 @@ public class User {
         this.crops = new ArrayList<>();
         this.plots = new ArrayList<>();
 //        this.jobs = new ArrayList<>();
-        this.id = id;
         this.replies = new ArrayList<>();
+        this.textContents = new ArrayList<>();
 
     }
     public User() {
@@ -167,6 +171,7 @@ public class User {
     public boolean isOnCommittee() {
         return !(position == PositionType.NONE || position == PositionType.INACTIVE);
     }
+
     public Long getId() {
         return id;
     }
@@ -182,7 +187,19 @@ public class User {
         this.replies = replies;
     }
 
-//    public void addPlot(Plot plot){
+    public List<TextContent> getTextContents() {
+        return textContents;
+    }
+
+    public void setTextContents(List<TextContent> textContents) {
+        this.textContents = textContents;
+    }
+
+    public void addReply(Reply reply){
+        replies.add(reply);
+    }
+
+    //    public void addPlot(Plot plot){
 //        this.plots.add(plot);
 //    }
 //    public void removePlot(Plot plot){

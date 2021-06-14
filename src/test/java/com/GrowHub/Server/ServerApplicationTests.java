@@ -1,15 +1,9 @@
 package com.GrowHub.Server;
 
-import com.GrowHub.Server.models.Communal;
-import com.GrowHub.Server.models.Job;
-import com.GrowHub.Server.models.Plot;
-import com.GrowHub.Server.models.User;
+import com.GrowHub.Server.models.*;
 import com.GrowHub.Server.models.enums.AreaType;
 import com.GrowHub.Server.models.enums.PositionType;
-import com.GrowHub.Server.repositories.CommunalRepository;
-import com.GrowHub.Server.repositories.JobRepository;
-import com.GrowHub.Server.repositories.PlotRepository;
-import com.GrowHub.Server.repositories.UserRepository;
+import com.GrowHub.Server.repositories.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,6 +27,9 @@ class ServerApplicationTests {
 
 	@Autowired
 	CommunalRepository communalRepository;
+
+	@Autowired
+	ReplyRepository replyRepository;
 
 	@Test
 	void contextLoads() {
@@ -117,16 +114,25 @@ class ServerApplicationTests {
 //
 //	}
 
+//	@Test
+//	void canAddJobApplyingToCommunalArea() {
+//		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+//		userRepository.save(Andy);
+//		Communal communal4 = new Communal("Toilet", AreaType.TOILET, "Ecological toilet.");
+//		communalRepository.save(communal4);
+//		Job job1 = new Job("04/02/2021", Andy,"Toilet door", "The toilet door lock has broken and needs to be replaced.", communal4, "30/06/2021", 5);
+//		jobRepository.save(job1);
+//		assertEquals(communal4, job1.getArea()); //passes
+//
+//	}
+
 	@Test
-	void canAddJobApplyingToCommunalArea() {
+	void canAddReply(){
 		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
 		userRepository.save(Andy);
-		Communal communal4 = new Communal("Toilet", AreaType.TOILET, "Ecological toilet.");
-		communalRepository.save(communal4);
-		Job job1 = new Job("04/02/2021", Andy,"Toilet door", "The toilet door lock has broken and needs to be replaced.", communal4, "30/06/2021", 5);
-		jobRepository.save(job1);
-		assertEquals(communal4, job1.getArea()); //passes
 
+		Reply reply1 = new Reply("Wow that's some good info", "16/06/2021", Andy);
+		replyRepository.save(reply1);
 	}
 
 //	@Test

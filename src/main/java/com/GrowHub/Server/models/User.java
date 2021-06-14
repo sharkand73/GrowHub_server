@@ -50,19 +50,19 @@ public class User {
     )
     private List<Plot> plots;
 
-    @JsonBackReference
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            name = "plots_jobs",
-            joinColumns = {
-                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "job_id", nullable = false, updatable = false)
-            }
-    )
-    private List<Job> jobs;
+//    @JsonBackReference
+//    @ManyToMany
+//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+//    @JoinTable(
+//            name = "plots_jobs",
+//            joinColumns = {
+//                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
+//            },
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "job_id", nullable = false, updatable = false)
+//            }
+//    )
+//    private List<Job> jobs;
 
     @JsonIgnoreProperties(value = "users")
     @ManyToMany
@@ -93,7 +93,7 @@ public class User {
         this.yearLeft = 0;
         this.crops = new ArrayList<>();
         this.plots = new ArrayList<>();
-        this.jobs = new ArrayList<>();
+//        this.jobs = new ArrayList<>();
         this.id = id;
         this.replies = new ArrayList<>();
 
@@ -157,12 +157,12 @@ public class User {
     public void setPlots(List<Plot> plots) {
         this.plots = plots;
     }
-    public List<Job> getJobs() {
-        return jobs;
-    }
-    public void setJobs(List<Job> jobs) {
-        this.jobs = jobs;
-    }
+//    public List<Job> getJobs() {
+//        return jobs;
+//    }
+//    public void setJobs(List<Job> jobs) {
+//        this.jobs = jobs;
+//    }
     // add/remove job functions?
     public boolean isOnCommittee() {
         return !(position == PositionType.NONE || position == PositionType.INACTIVE);

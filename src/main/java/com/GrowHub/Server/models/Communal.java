@@ -54,4 +54,6 @@ public class Communal extends Area{
     public void setAreaInfo(String areaInfo) {
         this.areaInfo = areaInfo;
     }
+
+
 }

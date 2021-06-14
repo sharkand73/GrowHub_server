@@ -26,7 +26,7 @@ public class Plot extends Area{
     @Column
     private boolean isFlat;
 
-    @JsonBackReference
+    @JsonBackReference(value="plot")
     @OneToMany(mappedBy = "plot", fetch = FetchType.LAZY)
     private List<Comment> comments;
 

@@ -25,7 +25,7 @@ public class JobController {
     }
 
     @PostMapping(value = "/jobs")
-    public ResponseEntity postJob(@RequestBody Job job){
+    public ResponseEntity<Job> postJob(@RequestBody Job job){
         jobRepository.save(job);
         return new ResponseEntity<>(job, HttpStatus.CREATED);
     }
@@ -33,7 +33,7 @@ public class JobController {
     @PutMapping(value = "/jobs/{id}")
     public ResponseEntity putJob(@RequestBody Job job, @PathVariable Long id){
         Job jobToUpdate = jobRepository.findById(id).get();
-        jobToUpdate.setUsers(job.getUsers());
+//        jobToUpdate.setUsers(job.getUsers());
         jobToUpdate.setArea(job.getArea());
         jobToUpdate.setDeadline(job.getDeadline());
         jobToUpdate.setDifficulty(job.getDifficulty());

@@ -29,7 +29,6 @@ public abstract class TextContent {
 
     //CONSTRUCTOR
     public TextContent(String date, User author, String title, String body) {
-        this.id = id;
         this.date = date;
         this.author = author;
         this.title = title;

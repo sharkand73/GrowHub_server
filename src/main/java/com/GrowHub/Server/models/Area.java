@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "areas")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Area {
 
@@ -26,7 +27,6 @@ public abstract class Area {
     public Area(String areaName) {
         this.areaName = areaName;
         this.jobs = new ArrayList<>();
-        this.id = id;
     }
 
     public Area() {
@@ -55,4 +55,6 @@ public abstract class Area {
     public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
     }
+
+
 }

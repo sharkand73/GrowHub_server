@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @Entity
-@Table
+@Table(name="jobs")
 public class Job extends TextContent{
 
     @JsonIgnoreProperties(value="jobs")
@@ -25,18 +25,18 @@ public class Job extends TextContent{
     @Column
     private int difficulty;
 
-    @JsonIgnoreProperties(value="jobs")
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            joinColumns = {
-                    @JoinColumn(name = "job_id", nullable = false, updatable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
-            }
-    )
-    private List<User> users;
+//    @JsonIgnoreProperties(value="jobs")
+//    @ManyToMany
+//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+//    @JoinTable(
+//            joinColumns = {
+//                    @JoinColumn(name = "job_id", nullable = false, updatable = false)
+//            },
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
+//            }
+//    )
+//    private List<User> users;
 
     //CONSTRUCTOR
     public Job(String date, User author, String title, String body, Area area, String deadline, int difficulty) {
@@ -44,10 +44,11 @@ public class Job extends TextContent{
         this.area = area;
         this.deadline = deadline;
         this.difficulty = difficulty;
-        this.users = new ArrayList<>();
+//        this.users = new ArrayList<>();
     }
 
     public Job() {
+
     }
 
     public Area getArea() {
@@ -74,13 +75,14 @@ public class Job extends TextContent{
         this.difficulty = difficulty;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
+//    public List<User> getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(List<User> users) {
+//        this.users = users;
+//    }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 
 
 }

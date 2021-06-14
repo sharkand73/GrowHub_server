@@ -29,9 +29,6 @@ public class User {
     @Column
     private PositionType position;
 
-//    @Column
-//    private boolean onCommittee;
-
     @Column
     private int yearJoined;
 
@@ -204,6 +201,7 @@ public class User {
         this.jobs = jobs;
     }
 
+    
     public List<BulletinItem> getBulletinItems() {
         return bulletinItems;
     }
@@ -235,6 +233,10 @@ public class User {
 
     public void addJob(Job job){
         this.jobs.add(job);
+    }
+
+    public void addPlot(Plot plot){
+        this.plots.add(plot);
     }
 
 }

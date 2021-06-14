@@ -14,8 +14,8 @@ import javax.persistence.Table;
 public class Comment extends TextContent{
 
 
-//    @JsonIgnoreProperties(value="comments")
-    @JsonBackReference(value="comments_plot")
+    @JsonIgnoreProperties(value="comments")
+//    @JsonBackReference(value="comments_plot")
     @ManyToOne
     @JoinColumn(name="plot_id", nullable = false)
     private Plot plot;

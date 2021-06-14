@@ -2,6 +2,7 @@ package com.GrowHub.Server.models;
 
 
 import com.GrowHub.Server.models.enums.Month;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -13,10 +14,16 @@ public class Tip extends TextContent{
     @Enumerated(value= EnumType.STRING)
     private Month month;
 
+    @JsonIgnoreProperties(value = "tips")
+    @ManyToOne
+    @JoinColumn(name="author_id", nullable = false)
+    private User author;
+
     //CONSTRUCTOR
     public Tip(String date, User author, String title, String body, Month month) {
-        super(date, author, title, body);
+        super(date, title, body);
         this.month = month;
+        this.author = author;
     }
 
     public Tip(){}
@@ -27,5 +34,13 @@ public class Tip extends TextContent{
 
     public void setMonth(Month month) {
         this.month = month;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }

@@ -16,10 +16,8 @@ public abstract class TextContent {
     private String date;
 
 //    @JsonBackReference
-    @JsonIgnoreProperties(value = "text_contents")
-    @ManyToOne
-    @JoinColumn(name="author_id", nullable = false)
-    private User author;
+
+
 
     @Column
     private String title;
@@ -28,9 +26,8 @@ public abstract class TextContent {
     private String body;
 
     //CONSTRUCTOR
-    public TextContent(String date, User author, String title, String body) {
+    public TextContent(String date, String title, String body) {
         this.date = date;
-        this.author = author;
         this.title = title;
         this.body = body;
     }
@@ -52,14 +49,6 @@ public abstract class TextContent {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
     }
 
     public String getTitle() {

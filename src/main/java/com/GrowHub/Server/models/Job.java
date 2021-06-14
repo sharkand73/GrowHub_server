@@ -46,12 +46,18 @@ public class Job extends TextContent{
 //    )
 //    private List<User> users;
 
+    @JsonIgnoreProperties(value = "jobs")
+    @ManyToOne
+    @JoinColumn(name="author_id", nullable = false)
+    private User author;
+
     //CONSTRUCTOR
     public Job(String date, User author, String title, String body, Area area, String deadline, int difficulty) {
-        super(date, author, title, body);
+        super(date, title, body);
         this.area = area;
         this.deadline = deadline;
         this.difficulty = difficulty;
+        this.author = author;
 //        this.users = new ArrayList<>();
     }
 
@@ -92,5 +98,11 @@ public class Job extends TextContent{
 //    }
 
 
+    public User getAuthor() {
+        return author;
+    }
 
+    public void setAuthor(User author) {
+        this.author = author;
+    }
 }

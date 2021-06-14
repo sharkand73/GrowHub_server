@@ -86,15 +86,15 @@ public class User {
     private List<Reply> replies;
 
 //    @JsonBackReference(value = "text_users")
-    @JsonIgnoreProperties(value = "author")
+    @JsonIgnoreProperties(value = "users")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Job> jobs;
 
-    @JsonIgnoreProperties(value = "author")
+    @JsonIgnoreProperties(value = "users")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<BulletinItem> bulletinItems;
 
-    @JsonIgnoreProperties(value = "author")
+    @JsonIgnoreProperties(value = "users")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Knowhow> knowhows;
 

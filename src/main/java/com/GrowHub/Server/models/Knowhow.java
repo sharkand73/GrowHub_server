@@ -4,6 +4,7 @@ package com.GrowHub.Server.models;
 import javax.persistence.*;
 
 import com.GrowHub.Server.models.enums.Month;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,10 +20,16 @@ public class Knowhow extends TextContent{
     @Enumerated(value = EnumType.STRING)
     private Month month;
 
+    @JsonIgnoreProperties(value = "know_hows")
+    @ManyToOne
+    @JoinColumn(name="author_id", nullable = false)
+    private User author;
+
     //CONSTRUCTOR
     public Knowhow(String date, User author, String title, String body, Month month) {
-        super(date, author, title, body);
+        super(date, title, body);
         this.month = month;
+        this.author = author;
     }
 
     public Knowhow() {
@@ -45,5 +52,13 @@ public class Knowhow extends TextContent{
 
     public void setMonth(Month month) {
         this.month = month;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }

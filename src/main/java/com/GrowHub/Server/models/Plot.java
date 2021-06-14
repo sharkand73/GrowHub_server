@@ -26,11 +26,11 @@ public class Plot extends Area{
     @Column
     private boolean isFlat;
 
-    @JsonBackReference(value="plot")
+    @JsonIgnoreProperties(value = "plots")
     @OneToMany(mappedBy = "plot", fetch = FetchType.LAZY)
     private List<Comment> comments;
 
-    @JsonBackReference
+    @JsonIgnoreProperties(value = "plots")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(

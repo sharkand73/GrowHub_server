@@ -179,6 +179,7 @@ public class User {
 //        this.jobs = jobs;
 //    }
     // add/remove job functions?
+
     public boolean isOnCommittee() {
         return !(position == PositionType.NONE || position == PositionType.INACTIVE);
     }

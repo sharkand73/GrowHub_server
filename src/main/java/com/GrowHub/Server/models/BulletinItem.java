@@ -36,9 +36,9 @@ public class BulletinItem extends TextContent{
         this.author = author;
     }
 
-    public boolean isFromCommittee(){
-            return author.isOnCommittee();
-        }
+//    public boolean isFromCommittee(){
+//            return getAuthor().isOnCommittee();
+//        }
 
 
 }

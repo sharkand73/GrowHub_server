@@ -1,6 +1,8 @@
 package com.GrowHub.Server.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.List;
 @Table(name = "areas")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Area {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

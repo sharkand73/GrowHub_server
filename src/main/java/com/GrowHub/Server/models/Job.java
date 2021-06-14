@@ -51,13 +51,17 @@ public class Job extends TextContent{
     @JoinColumn(name="author_id", nullable = false)
     private User author;
 
+    @Column
+    private ArrayList carrots;
+
     //CONSTRUCTOR
-    public Job(String date, User author, String title, String body, Communal communal, String deadline, int difficulty) {
+    public Job(String date, User author, String title, String body, Communal communal, String deadline, int difficulty, ArrayList carrots) {
         super(date, title, body);
         this.communal = communal;
         this.deadline = deadline;
         this.difficulty = difficulty;
         this.author = author;
+        this.carrots = carrots;
 //        this.users = new ArrayList<>();
     }
 
@@ -104,5 +108,13 @@ public class Job extends TextContent{
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public ArrayList getCarrots() {
+        return carrots;
+    }
+
+    public void setCarrots(ArrayList carrots) {
+        this.carrots = carrots;
     }
 }

@@ -195,13 +195,15 @@ public class DataLoader implements ApplicationRunner {
 
         // List of allotment jobs which require volunteers
 
-        Job job1 = new Job("04/02/2021", Mike,"Toilet door", "The toilet door lock has broken and needs to be replaced.", communal4, "30/06/2021", 5);
+        ArrayList carrots = new ArrayList<>();
+
+        Job job1 = new Job("04/02/2021", Mike,"Toilet door", "The toilet door lock has broken and needs to be replaced.", communal4, "30/06/2021", 5, carrots);
         jobRepository.save(job1);
 
-        Job job2 = new Job("31/05/2021", Mike,"Tip trip", "There is a pile of bundled rubbish that needs to go to the tip, unless someone can repurpose any of it?", communal3, "10/07/2021", 2);
+        Job job2 = new Job("31/05/2021", Mike,"Tip trip", "There is a pile of bundled rubbish that needs to go to the tip, unless someone can repurpose any of it?", communal3, "10/07/2021", 2, carrots);
         jobRepository.save(job2);
 
-        Job job3 = new Job("31/05/2021", Mike,"Wheelbarrow tyres", "The communal wheelbarrows (x2) need their tyres pumped up. Does anyone have a pump and the elbow grease to do it?", communal1, "28/06/2021", 2);
+        Job job3 = new Job("31/05/2021", Mike,"Wheelbarrow tyres", "The communal wheelbarrows (x2) need their tyres pumped up. Does anyone have a pump and the elbow grease to do it?", communal1, "28/06/2021", 2, carrots);
         jobRepository.save(job3);
 
 

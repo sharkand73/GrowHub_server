@@ -21,7 +21,7 @@ public abstract class Area {
     @Column
     private String areaName;
 
-    @JsonIgnoreProperties(value="area")
+    @JsonIgnoreProperties(value="areas")
     @OneToMany(mappedBy = "area", fetch=FetchType.LAZY)
     private List<Job> jobs;
 

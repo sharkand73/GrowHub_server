@@ -15,13 +15,13 @@ public class Comment extends TextContent{
 
 
 //    @JsonIgnoreProperties(value="comments")
-    @JsonBackReference(value="comments")
+    @JsonBackReference(value="comments_plot")
     @ManyToOne
     @JoinColumn(name="plot_id", nullable = false)
     private Plot plot;
 
 //    @JsonIgnoreProperties(value = "comments")
-    @JsonBackReference(value="comments")
+    @JsonBackReference(value="comments_author")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;

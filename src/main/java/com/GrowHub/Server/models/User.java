@@ -168,7 +168,7 @@ public class User {
     public void setYearLeft(int yearLeft) {
         this.yearLeft = yearLeft;
     }
-
+    
     public List<Plot> getPlots() {
         return plots;
     }
@@ -185,6 +185,7 @@ public class User {
         this.crops = crops;
     }
 
+    @JsonIgnore
     public List<Reply> getReplies() {
         return replies;
     }
@@ -193,6 +194,7 @@ public class User {
         this.replies = replies;
     }
 
+    @JsonIgnore
     public List<Job> getJobs() {
         return jobs;
     }
@@ -201,7 +203,7 @@ public class User {
         this.jobs = jobs;
     }
 
-    
+    @JsonIgnore
     public List<BulletinItem> getBulletinItems() {
         return bulletinItems;
     }
@@ -210,6 +212,7 @@ public class User {
         this.bulletinItems = bulletinItems;
     }
 
+    @JsonIgnore
     public List<Knowhow> getKnowhows() {
         return knowhows;
     }

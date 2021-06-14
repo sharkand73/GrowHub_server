@@ -14,12 +14,13 @@ import javax.persistence.Table;
 public class Comment extends TextContent{
 
 
-    @JsonIgnoreProperties(value="comments")
+//    @JsonIgnoreProperties(value="comments")
+    @JsonBackReference(value="comments")
     @ManyToOne
     @JoinColumn(name="plot_id", nullable = false)
     private Plot plot;
 
-    //@JsonIgnoreProperties(value = "comments")
+//    @JsonIgnoreProperties(value = "comments")
     @JsonBackReference(value="comments")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)

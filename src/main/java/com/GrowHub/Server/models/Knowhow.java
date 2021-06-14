@@ -21,8 +21,8 @@ public class Knowhow extends TextContent{
     @Enumerated(value = EnumType.STRING)
     private Month month;
 
-    //@JsonIgnoreProperties(value = "know_hows")
-    @JsonBackReference(value="know_hows")
+    @JsonIgnoreProperties(value = "know_hows")
+//    @JsonBackReference(value="know_hows")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;

@@ -84,15 +84,15 @@ public class User {
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Reply> replies;
 
-    @JsonIgnoreProperties(value = "users")
+    @JsonIgnoreProperties(value = "author")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Job> jobs;
 
-    @JsonIgnoreProperties(value = "users")
+    @JsonIgnoreProperties(value = "author")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<BulletinItem> bulletinItems;
 
-    @JsonIgnoreProperties(value = "users")
+    @JsonIgnoreProperties(value = "author")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Knowhow> knowhows;
 

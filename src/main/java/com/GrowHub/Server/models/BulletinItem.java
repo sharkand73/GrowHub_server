@@ -13,8 +13,8 @@ import javax.persistence.Table;
 @Table(name="bulletins")
 public class BulletinItem extends TextContent{
 
-//    @JsonIgnoreProperties(value = "bulletins")
-    @JsonBackReference(value="bulletins")
+    @JsonIgnoreProperties(value = "bulletins")
+//    @JsonBackReference(value="bulletins")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;

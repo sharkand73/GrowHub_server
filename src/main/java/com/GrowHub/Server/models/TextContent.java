@@ -15,10 +15,6 @@ public abstract class TextContent {
     @Column
     private String date;
 
-//    @JsonBackReference
-
-
-
     @Column
     private String title;
 

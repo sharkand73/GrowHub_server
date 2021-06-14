@@ -2,6 +2,8 @@ package com.GrowHub.Server.models;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -13,6 +15,12 @@ import java.util.List;
 @Entity
 @Table(name="jobs")
 public class Job extends TextContent{
+
+    @JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+    @JsonSubTypes({
+            @JsonSubTypes.Type(value = Plot.class, name = "plot"),
+            @JsonSubTypes.Type(value = Communal.class, name = "communal")
+    })
 
     @JsonIgnoreProperties(value="jobs")
     @ManyToOne

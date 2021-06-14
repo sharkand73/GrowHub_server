@@ -1,6 +1,7 @@
 package com.GrowHub.Server.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Entity;
@@ -12,7 +13,8 @@ import javax.persistence.Table;
 @Table(name="bulletins")
 public class BulletinItem extends TextContent{
 
-    @JsonIgnoreProperties(value = "bulletins")
+//    @JsonIgnoreProperties(value = "bulletins")
+    @JsonBackReference(value="bulletins")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;

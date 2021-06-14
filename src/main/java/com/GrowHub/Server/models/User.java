@@ -80,12 +80,10 @@ public class User {
     )
     private List<Crop> crops;
 
-//    @JsonBackReference(value = "users")
     @JsonIgnoreProperties(value="author")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Reply> replies;
 
-//    @JsonBackReference(value = "text_users")
     @JsonIgnoreProperties(value = "users")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Job> jobs;

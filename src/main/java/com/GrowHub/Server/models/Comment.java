@@ -1,6 +1,7 @@
 package com.GrowHub.Server.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Entity;
@@ -18,7 +19,8 @@ public class Comment extends TextContent{
     @JoinColumn(name="plot_id", nullable = false)
     private Plot plot;
 
-    @JsonIgnoreProperties(value = "comments")
+    //@JsonIgnoreProperties(value = "comments")
+    @JsonBackReference(value="comments")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;

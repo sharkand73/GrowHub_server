@@ -2,6 +2,7 @@ package com.GrowHub.Server.models;
 
 
 import com.GrowHub.Server.models.enums.Month;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -14,7 +15,8 @@ public class Tip extends TextContent{
     @Enumerated(value= EnumType.STRING)
     private Month month;
 
-    @JsonIgnoreProperties(value = "tips")
+//    @JsonIgnoreProperties(value = "tips")
+    @JsonBackReference(value="tips")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;

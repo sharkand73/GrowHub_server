@@ -4,6 +4,7 @@ package com.GrowHub.Server.models;
 import javax.persistence.*;
 
 import com.GrowHub.Server.models.enums.Month;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
@@ -20,7 +21,8 @@ public class Knowhow extends TextContent{
     @Enumerated(value = EnumType.STRING)
     private Month month;
 
-    @JsonIgnoreProperties(value = "know_hows")
+    //@JsonIgnoreProperties(value = "know_hows")
+    @JsonBackReference(value="know_hows")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;

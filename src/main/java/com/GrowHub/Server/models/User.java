@@ -29,8 +29,8 @@ public class User {
     @Column
     private PositionType position;
 
-    @Column
-    private boolean onCommittee;
+//    @Column
+//    private boolean onCommittee;
 
     @Column
     private int yearJoined;
@@ -64,7 +64,7 @@ public class User {
 //                    @JoinColumn(name = "job_id", nullable = false, updatable = false)
 //            }
 //    )
-//    private List<Job> jobs;
+//    private List<Job> userJobs;
 
     @JsonIgnoreProperties(value = "users")
     @ManyToMany
@@ -102,7 +102,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.position = position;
-        this.onCommittee = isOnCommittee();
+//        this.onCommittee = isOnCommittee();
         this.yearJoined = yearJoined;
         this.yearLeft = 0;
         this.crops = new ArrayList<>();
@@ -115,80 +115,77 @@ public class User {
     }
     public User() {
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getShortName() {
         return shortName;
     }
+
     public void setShortName(String shortName) {
         this.shortName = shortName;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
+
     public PositionType getPosition() {
         return position;
     }
+
     public void setPosition(PositionType position) {
         this.position = position;
-    }
-
-    public boolean getOnCommittee() {
-        return onCommittee;
-    }
-
-    public void setOnCommittee(boolean onCommittee) {
-        this.onCommittee = onCommittee;
     }
 
     public int getYearJoined() {
         return yearJoined;
     }
+
     public void setYearJoined(int yearJoined) {
         this.yearJoined = yearJoined;
     }
+
     public int getYearLeft() {
         return yearLeft;
     }
+
     public void setYearLeft(int yearLeft) {
         this.yearLeft = yearLeft;
     }
-    public List<Crop> getCrops() {
-        return crops;
-    }
-    public void setCrops(List<Crop> crops) {
-        this.crops = crops;
-    }
+
     public List<Plot> getPlots() {
         return plots;
     }
+
     public void setPlots(List<Plot> plots) {
         this.plots = plots;
     }
-//    public List<Job> getJobs() {
-//        return jobs;
-//    }
-//    public void setJobs(List<Job> jobs) {
-//        this.jobs = jobs;
-//    }
-    // add/remove job functions?
 
-    public boolean isOnCommittee() {
-        return !(position == PositionType.NONE || position == PositionType.INACTIVE);
+    public List<Crop> getCrops() {
+        return crops;
     }
 
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
+    public void setCrops(List<Crop> crops) {
+        this.crops = crops;
     }
 
     public List<Reply> getReplies() {
@@ -197,10 +194,6 @@ public class User {
 
     public void setReplies(List<Reply> replies) {
         this.replies = replies;
-    }
-
-    public void addReply(Reply reply){
-        replies.add(reply);
     }
 
     public List<Job> getJobs() {
@@ -227,12 +220,14 @@ public class User {
         this.knowhows = knowhows;
     }
 
-    //    public void addPlot(Plot plot){
-//        this.plots.add(plot);
-//    }
-//    public void removePlot(Plot plot){
-//        this.plots.remove(plot);
-//    }
+    // adders
+    public void addReply(Reply reply){
+        this.replies.add(reply);
+    }
+
+    public void addKnowhow(Knowhow knowhow){
+        this.knowhows.add(knowhow);
+    }
 
     public void addBulletinItem(BulletinItem bulletinItem){
         this.bulletinItems.add(bulletinItem);
@@ -241,10 +236,5 @@ public class User {
     public void addJob(Job job){
         this.jobs.add(job);
     }
-
-    public void addKnowhow(Knowhow knowhow){
-        this.knowhows.add(knowhow);
-    }
-
 
 }

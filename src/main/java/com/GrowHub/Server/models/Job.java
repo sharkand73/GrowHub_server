@@ -16,16 +16,16 @@ import java.util.List;
 @Table(name="jobs")
 public class Job extends TextContent{
 
-    @JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
-    @JsonSubTypes({
-            @JsonSubTypes.Type(value = Plot.class, name = "plot"),
-            @JsonSubTypes.Type(value = Communal.class, name = "communal")
-    })
+//    @JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+//    @JsonSubTypes({
+//            @JsonSubTypes.Type(value = Plot.class, name = "plot"),
+//            @JsonSubTypes.Type(value = Communal.class, name = "communal")
+//    })
 
     @JsonIgnoreProperties(value="jobs")
     @ManyToOne
-    @JoinColumn(name="area_id", nullable = false)
-    private Area area;
+    @JoinColumn(name="communal_id", nullable = false)
+    private Communal communal;
 
     @Column
     private String deadline;
@@ -44,7 +44,7 @@ public class Job extends TextContent{
 //                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
 //            }
 //    )
-//    private List<User> users;
+//    private List<User> jobUsers;
 
     @JsonIgnoreProperties(value = "jobs")
     @ManyToOne
@@ -52,9 +52,9 @@ public class Job extends TextContent{
     private User author;
 
     //CONSTRUCTOR
-    public Job(String date, User author, String title, String body, Area area, String deadline, int difficulty) {
+    public Job(String date, User author, String title, String body, Communal communal, String deadline, int difficulty) {
         super(date, title, body);
-        this.area = area;
+        this.communal = communal;
         this.deadline = deadline;
         this.difficulty = difficulty;
         this.author = author;
@@ -65,12 +65,12 @@ public class Job extends TextContent{
 
     }
 
-    public Area getArea() {
-        return area;
+    public Communal getCommunal() {
+        return communal;
     }
 
-    public void setArea(Area area) {
-        this.area = area;
+    public void setCommunal(Communal communal) {
+        this.communal = communal;
     }
 
     public String getDeadline() {

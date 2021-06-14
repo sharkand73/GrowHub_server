@@ -40,7 +40,7 @@ public class UserController {
         foundUser.setCrops(user.getCrops());
         foundUser.setPosition(user.getPosition());
         foundUser.setPlots(user.getPlots());
-        foundUser.setOnCommittee(user.getOnCommittee());
+//        foundUser.setOnCommittee(user.getOnCommittee());
         foundUser.setShortName(user.getShortName());
         foundUser.setYearJoined(user.getYearJoined());
         foundUser.setYearLeft(user.getYearLeft());

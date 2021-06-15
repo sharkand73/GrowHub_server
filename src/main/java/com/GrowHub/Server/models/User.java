@@ -86,6 +86,7 @@ public class User {
     private List<Job> jobs;
 
     @JsonIgnoreProperties(value = "author")
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<BulletinItem> bulletinItems;
 

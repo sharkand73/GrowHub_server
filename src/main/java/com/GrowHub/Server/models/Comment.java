@@ -3,6 +3,7 @@ package com.GrowHub.Server.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -23,6 +24,7 @@ public class Comment extends TextContent{
 //    @JsonIgnoreProperties(value = "comments")
     @JsonBackReference(value="comments_author")
     @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @JoinColumn(name="author_id", nullable = false)
     private User author;
 

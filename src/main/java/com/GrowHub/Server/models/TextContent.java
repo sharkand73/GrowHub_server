@@ -1,6 +1,8 @@
 package com.GrowHub.Server.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,6 +12,12 @@ import java.util.List;
 @Table(name = "text_contents")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class TextContent {
+
+//    @JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+//    @JsonSubTypes({
+//            @JsonSubTypes.Type(value = Knowhow.class, name = "knowHow"),
+//            @JsonSubTypes.Type(value = Job.class, name = "job")
+//    })
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,16 +32,11 @@ public abstract class TextContent {
     @Column
     private String body;
 
-    @JsonIgnoreProperties(value="textContent")
-    @OneToMany(mappedBy = "textContent", fetch = FetchType.LAZY)
-    private List<Reply> replies;
-
     //CONSTRUCTOR
     public TextContent(String date, String title, String body) {
         this.date = date;
         this.title = title;
         this.body = body;
-        this.replies = new ArrayList<>();
     }
 
     public TextContent() {
@@ -69,13 +72,5 @@ public abstract class TextContent {
 
     public void setBody(String body) {
         this.body = body;
-    }
-
-    public List<Reply> getReplies() {
-        return replies;
-    }
-
-    public void setReplies(List<Reply> replies) {
-        this.replies = replies;
     }
 }

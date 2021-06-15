@@ -14,24 +14,29 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 
 @Entity
-@Table(name="know_hows")
+@Table(name="knowhows")
 public class Knowhow extends TextContent{
 
     @Column
     @Enumerated(value = EnumType.STRING)
     private Month month;
 
-    @JsonIgnoreProperties(value = "know_hows")
+    @JsonIgnoreProperties(value = "knowhows")
 //    @JsonBackReference(value="know_hows")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;
+
+    @JsonIgnoreProperties(value="knowhows")
+    @OneToMany(mappedBy = "knowhow", fetch = FetchType.LAZY)
+    private List<Reply> replies;
 
     //CONSTRUCTOR
     public Knowhow(String date, User author, String title, String body, Month month) {
         super(date, title, body);
         this.month = month;
         this.author = author;
+        this.replies = new ArrayList<>();
     }
 
     public Knowhow() {
@@ -62,5 +67,13 @@ public class Knowhow extends TextContent{
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public List<Reply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Reply> replies) {
+        this.replies = replies;
     }
 }

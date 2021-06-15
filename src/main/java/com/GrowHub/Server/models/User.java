@@ -77,7 +77,7 @@ public class User {
     )
     private List<Crop> crops;
 
-    @JsonIgnoreProperties(value="author")
+    @JsonIgnoreProperties(value="plots")
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Reply> replies;
 
@@ -168,6 +168,7 @@ public class User {
         this.yearLeft = yearLeft;
     }
 
+    @JsonIgnore
     public List<Plot> getPlots() {
         return plots;
     }

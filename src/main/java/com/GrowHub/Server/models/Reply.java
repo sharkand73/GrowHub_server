@@ -12,11 +12,11 @@ import javax.persistence.*;
 public class Reply {
 
 //    Need to add another type here, if we want replies on bulletins to be allowed
-    @JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
-    @JsonSubTypes({
-            @JsonSubTypes.Type(value = Knowhow.class, name = "knowHow"),
-            @JsonSubTypes.Type(value = Job.class, name = "job")
-    })
+//    @JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+//    @JsonSubTypes({
+//            @JsonSubTypes.Type(value = Knowhow.class, name = "knowhow"),
+//            @JsonSubTypes.Type(value = Job.class, name = "job")
+//    })
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,14 +35,14 @@ public class Reply {
 
     @JsonIgnoreProperties(value = "replies")
     @ManyToOne
-    @JoinColumn(name = "textContent_id", nullable = false)
-    private TextContent textContent;
+    @JoinColumn(name = "knowhow_id", nullable = false)
+    private Knowhow knowhow;
 
-    public Reply(String body, String date, User author, TextContent textContent) {
+    public Reply(String body, String date, User author, Knowhow knowhow) {
         this.body = body;
         this.date = date;
         this.author = author;
-        this.textContent = textContent;
+        this.knowhow = knowhow;
     }
 
     public Reply() {
@@ -81,11 +81,11 @@ public class Reply {
         this.author = author;
     }
 
-    public TextContent getTextContent() {
-        return textContent;
+    public Knowhow getKnowhow() {
+        return knowhow;
     }
 
-    public void setTextContent(TextContent textContent) {
-        this.textContent = textContent;
+    public void setKnowhow(Knowhow knowhow) {
+        this.knowhow = knowhow;
     }
 }

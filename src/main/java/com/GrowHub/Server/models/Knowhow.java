@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.GrowHub.Server.models.enums.Month;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,6 +29,7 @@ public class Knowhow extends TextContent{
     private User author;
 
     @JsonIgnoreProperties(value="knowhows")
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @OneToMany(mappedBy = "knowhow", fetch = FetchType.LAZY)
     private List<Reply> replies;
 

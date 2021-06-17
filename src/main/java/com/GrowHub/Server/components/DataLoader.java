@@ -60,7 +60,7 @@ public class DataLoader implements ApplicationRunner {
         AllotmentSettings lambhillSettings = new AllotmentSettings("Lambhill Allotments", "Glasgow", "GBR", "55.8926,-4.2607", "0d820993802bd0122435be9caac2043d", "./map.svg" );
         allotmentSettingsRepository.save(lambhillSettings);
 
-        
+
         // List of plot users
         User AdministratorJanet = new User("JanM", "janmole@hotmail.co.uk", "janlovesjam101", PositionType.COMMUNICATIONS, 2014);
         userRepository.save(AdministratorJanet);

@@ -57,28 +57,24 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) {
 
         // Global settings for this allotment
-
         AllotmentSettings lambhillSettings = new AllotmentSettings("Lambhill Allotments", "Glasgow", "GBR", "55.8926,-4.2607", "0d820993802bd0122435be9caac2043d", "./map.svg" );
         allotmentSettingsRepository.save(lambhillSettings);
 
 
-
-
         // List of plot users
-
-        User AdministratorJanet = new User("MadJan", "madjan@hotmail.co.uk", "madjanlovesjam", PositionType.COMMUNICATIONS, 2014);
+        User AdministratorJanet = new User("JanM", "janmole@hotmail.co.uk", "janlovesjam101", PositionType.COMMUNICATIONS, 2014);
         userRepository.save(AdministratorJanet);
 
         User Mike = new User("MikeP", "bigmike@hotmail.co.uk", "pingpong2356", PositionType.ORDINARY, 2017);
         userRepository.save(Mike);
 
-        User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+        User Andy = new User("AndyS", "andypandy@hotmail.co.uk", "veggrower953", PositionType.TREASURER, 2017);
         userRepository.save(Andy);
 
-        User Pauline = new User("PaulineB", "paulinelovescabbage@gmail", "whizkid763", PositionType.ORDINARY, 2016);
+        User Pauline = new User("PaulineB", "paulineblakely@gmail", "whizkid763", PositionType.ORDINARY, 2016);
         userRepository.save(Pauline);
 
-        User Brian = new User("BrianH", "mrlovemonster@gmail", "45lovemachine78", PositionType.ORDINARY, 2020);
+        User Brian = new User("BrianH", "mrbrianh@gmail", "howdy78", PositionType.ORDINARY, 2020);
         userRepository.save(Brian);
 
         User Colin = new User("Cozza", "cozzamozza@gmail", "greyhound", PositionType.ORDINARY, 2021);
@@ -92,7 +88,6 @@ public class DataLoader implements ApplicationRunner {
 
 
         // List of plots and communal areas (abstract class Area)
-
         Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
         plot1.addUser(Andy);
         plotRepository.save(plot1);
@@ -154,7 +149,6 @@ public class DataLoader implements ApplicationRunner {
 
 
         // Gardening tips, categorised by month.
-
         Tip tip1 = new Tip("23/12/2020", AdministratorJanet, "New Year, new seeds!", "Place your seed order in January as it will soon be time to start sowing onions, cabbages, parsnips, leeks, sweet peas and calendula.", Month.JANUARY);
         tipRepository.save(tip1);
 
@@ -192,10 +186,7 @@ public class DataLoader implements ApplicationRunner {
         tipRepository.save(tip12);
 
 
-
         // List of allotment jobs which require volunteers
-
-
         Job job1 = new Job("04/02/2021", Mike,"Toilet door", "The toilet door lock has broken and needs to be replaced.", communal4, "30/06/2021", 5);
         jobRepository.save(job1);
 
@@ -206,9 +197,7 @@ public class DataLoader implements ApplicationRunner {
         jobRepository.save(job3);
 
 
-
         // List of bulletin items for the notice board
-
         BulletinItem news1 = new BulletinItem("01/11/2020", Andy, "Lecture - free to attend", "The Botanic Society of Scotland is holding a free online lecture called 'What plant is that? Are smartphone apps the answer?', on 19/11/2020. If anyone is interested go to https://www.botanical-society-scotland.org.uk/category/news-events/lectures");
         bulletinItemRepository.save(news1);
 
@@ -222,10 +211,7 @@ public class DataLoader implements ApplicationRunner {
         bulletinItemRepository.save(news4);
 
 
-
-
         // List of know-how items, recorded by plot holders.
-
         Knowhow knowhow1 = new Knowhow("23/09/2020", Andy, "Chitting potatoes", "Leave your potatoes out 6 weeks before planting to allow the shoots to grow", Month.FEBRUARY);
         knowhowRepository.save(knowhow1);
 
@@ -245,9 +231,7 @@ public class DataLoader implements ApplicationRunner {
         knowhowRepository.save(knowhow6);
 
 
-
         // List of crops being grown by plotholders.
-
         Crop crop1 = new Crop("carrots");
         cropRepository.save(crop1);
 
@@ -309,10 +293,7 @@ public class DataLoader implements ApplicationRunner {
         cropRepository.save(crop20);
 
 
-
-
         // List of comments pertaining to plot history
-
         Comment comment1 = new Comment("15/04/2018", Andy, "Paths", "Laid paths using weed fabric, metal pins and wood chips.", plot1);
         commentRepository.save(comment1);
 
@@ -324,31 +305,10 @@ public class DataLoader implements ApplicationRunner {
 
 
         // List of replies
-
         Reply reply1 = new Reply("Wow that's some good info", "16/06/2021", Pauline, knowhow1);
         replyRepository.save(reply1);
         Reply reply2 = new Reply("Thanks :) I stole it.", "16/06/2021", Andy, knowhow1);
         replyRepository.save(reply2);
-
-
-
-
-//        Comment comment1job1 = new Comment("11/02/2021", Pauline, "Toilet", "Could I suggest we use a shower curtain in the meantime? Secure the sides with clothes pegs", plot1);
-//        commentRepository.save(comment1job1);
-//
-//        Comment comment2job3 = new Comment("02/06/2021", Brian, "Wheelbarrow tyres", "I have pump and can do it on Saturday", plot2);
-//        commentRepository.save(comment2job3);
-//
-//        Comment comment3knowhow2 = new Comment("14/01/2021", Mike, "Also...", "I do the same myself Andy. You can also plant your sprouts now for Christmas", plot3);
-//        commentRepository.save(comment3knowhow2);
-
-
-        // Does a comment really need the plot stated? It already has a user and should we know the plot through the user?
-        // At the moment I can't tell which plot to give the comments anyway as I'm not sure which user has which plot?
-
-        // Do we want plot users to be able to add comments (history) to their plots? Do we need to add String history
-        // to Plot model? Or if we want them to be able to made multiple comments to their plot (rather than edit the one string) we would
-        // need a new model called plotComment and a new List attribute for them in Plot?
 
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import javax.print.attribute.standard.DocumentName;
 import java.util.ArrayList;
 
 @Component
@@ -65,77 +66,87 @@ public class DataLoader implements ApplicationRunner {
 
 
         // List of plot users
+        User ConorN = new User("ConorN", "donornolan@live.com", "password", PositionType.NONE, 2021);
+        userRepository.save(ConorN);
 
-        User AdministratorJanet = new User("MadJan", "madjan@hotmail.co.uk", "madjanlovesjam", PositionType.COMMUNICATIONS, 2014);
-        userRepository.save(AdministratorJanet);
+        User LynnG = new User("LynnG", "Mynn.entertainer83@hotmail.com", "password", PositionType.NONE, 2021);
+        userRepository.save(LynnG);
 
-        User Mike = new User("MikeP", "bigmike@hotmail.co.uk", "pingpong2356", PositionType.ORDINARY, 2017);
-        userRepository.save(Mike);
+        User StephenF = new User("StephenF", "ttephenfinch29@gmail.com", "password", PositionType.ORDINARY, 2019);
+        userRepository.save(StephenF);
 
-        User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
-        userRepository.save(Andy);
+        User FrankH = new User("FrankH", "grankhall795@gmail.com", "password", PositionType.ORDINARY, 2012);
+        userRepository.save(FrankH);
 
-        User Pauline = new User("PaulineB", "paulinelovescabbage@gmail", "whizkid763", PositionType.ORDINARY, 2016);
-        userRepository.save(Pauline);
+        User JoD = new User("JoD", "KODALY913@hotmail.com", "password", PositionType.NONE, 2021);
+        userRepository.save(JoD);
 
-        User Brian = new User("BrianH", "mrlovemonster@gmail", "45lovemachine78", PositionType.ORDINARY, 2020);
-        userRepository.save(Brian);
+        User LaurenAW = new User("LaurenAW", "mallenwarwick@gmail.com", "password", PositionType.ORDINARY, 2020);
+        userRepository.save(LaurenAW);
 
-        User Colin = new User("Cozza", "cozzamozza@gmail", "greyhound", PositionType.ORDINARY, 2021);
-        userRepository.save(Colin);
+        User GeorgeT = new User("GeorgeT", "Heorge.thorpe@hotmail.com", "password", PositionType.ORDINARY, 2020);
+        userRepository.save(GeorgeT);
 
-        User Katy = new User("KT123", "bobcurrie@gmail", "cocktail", PositionType.ORDINARY, 2021);
-        userRepository.save(Katy);
+        User AliA = new User("AliA", "bli.sad75@yahoo.com", "password", PositionType.NONE, 2017);
+        userRepository.save(AliA);
 
-        User Gabriel = new User("Gabe89", "gneil@gmail", "bassguitar", PositionType.ORDINARY, 2021);
-        userRepository.save(Gabriel);
+        User DonaldM = new User("DonaldM", "sevdmmi@gmail.com", "password", PositionType.NONE, 2016);
+        userRepository.save(DonaldM);
 
+        User SukiS = new User("SukiS", "kust_call_me_suki@hotmail.co.uk", "password", PositionType.NONE, 2019);
+        userRepository.save(SukiS);
+
+        User SeanB = new User("SeanB", "teanbaillie78@yahoo.co.uk", "password", PositionType.NONE, 2019);
+        userRepository.save(SeanB);
+
+        User AndyS = new User("AndyS", "tharkand@hotmail.com", "jobbie101", PositionType.TREASURER, 2017);
+        userRepository.save(AndyS);
+
+        User FrankN = new User("FrankN", "oobbsfrancis136@gmail.com", "password", PositionType.NONE, 2012);
 
         // List of plots and communal areas (abstract class Area)
 
-        Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
-        plot1.addUser(Andy);
+        Plot plot1 = new Plot("Plot 1", 1, 25, 7.3, false);
+        plot1.addUser(ConorN);
         plotRepository.save(plot1);
 
-
-        Plot plot2 = new Plot("Plot 2",2, 5.50, 4.00, true);
-        plot2.addUser(Andy);
-        plot2.addUser(AdministratorJanet);
+        Plot plot2 = new Plot("Plot 2",2, 25, 7.3, false);
+        plot2.addUser(LynnG);
         plotRepository.save(plot2);
 
-        Plot plot3 = new Plot("Plot 3",3, 6.90, 3.90, true);
-        plot3.addUser(Mike);
-        plot3.addUser(AdministratorJanet);
-        plot3.addUser(Pauline);
+        Plot plot3 = new Plot("Plot 3",3, 25, 6, false);
+        plot3.addUser(StephenF);
         plotRepository.save(plot3);
 
-        Plot plot4 = new Plot("Plot 4",4, 6.00, 3.50, true);
-        plot4.addUser(Pauline);
+        Plot plot4 = new Plot("Plot 4",4, 25, 7.1, false);
+        plot4.addUser(FrankH);
+        plot4.addUser(FrankN);
         plotRepository.save(plot4);
 
-        Plot plot5 = new Plot("Plot 5",5, 6.10, 3.50, true);
-        plot5.addUser(Brian);
+        Plot plot5 = new Plot("Plot 5",5, 26, 6.5, false);
+        plot5.addUser(JoD);
         plotRepository.save(plot5);
 
-        Plot plot6 = new Plot("Plot 6",6, 7.00, 4.50, false);
-        plot6.addUser(Gabriel);
+        Plot plot6 = new Plot("Plot 6",6, 27, 5, false);
+        plot6.addUser(LaurenAW);
+        plot6.addUser(GeorgeT);
         plotRepository.save(plot6);
 
-        Plot plot7 = new Plot("Plot 7",7, 7.10, 4.40, false);
-        plot7.addUser(Colin);
+        Plot plot7 = new Plot("Plot 7",7, 29, 6.8, false);
+        plot7.addUser(AliA);
         plotRepository.save(plot7);
 
-        Plot plot8 = new Plot("Plot 8",8, 7.00, 4.60, false);
-        plot8.addUser(Colin);
-        plot8.addUser(Andy);
+        Plot plot8 = new Plot("Plot 8",8, 29, 9.1, false);
+        plot8.addUser(DonaldM);
         plotRepository.save(plot8);
 
-        Plot plot9 = new Plot("Plot 9",9, 6.90, 5.10, false);
-        plot9.addUser(Katy);
+        Plot plot9 = new Plot("Plot 9",9, 29.7, 7.1, false);
+        plot9.addUser(DonaldM);
         plotRepository.save(plot9);
 
-        Plot plot10 = new Plot("Plot 10",10, 6.20, 4.20, true);
-        plot10.addUser(Katy);
+        Plot plot10 = new Plot("Plot 10",10, 29, 5.1, false);
+        plot10.addUser(SukiS);
+        plot10.addUser(SeanB);
         plotRepository.save(plot10);
 
         Communal communal1 = new Communal("Orchard", AreaType.ORCHARD, "20m2 area of fruit trees");

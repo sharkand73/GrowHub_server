@@ -108,11 +108,12 @@ public class Plot extends Area{
         this.users = users;
     }
 
+    public boolean contains(User user){
+        return this.users.contains((user));
+    }
+
     public void addUser(User user) {
-        if (!this.users.contains(user)) {
             this.users.add(user);
-            //user.addPlot(this);   // I was required to force this as Spring wasn't doing it.
-        }
     }
 
     public void removeUser(User user) {

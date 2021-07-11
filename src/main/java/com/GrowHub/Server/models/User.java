@@ -36,17 +36,8 @@ public class User {
     private int yearLeft;
 
     @JsonIgnoreProperties(value = "users")
-    @ManyToMany
+    @ManyToMany(mappedBy = "users")
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            name = "users_plots",
-            joinColumns = {
-                    @JoinColumn(name = "user_id", nullable = false, updatable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "plot_id", nullable = false, updatable = false)
-            }
-    )
     private List<Plot> plots;
 
 //    @JsonBackReference
@@ -169,7 +160,7 @@ public class User {
         this.yearLeft = yearLeft;
     }
 
-    @JsonIgnore
+    //@JsonIgnore
     public List<Plot> getPlots() {
         return plots;
     }

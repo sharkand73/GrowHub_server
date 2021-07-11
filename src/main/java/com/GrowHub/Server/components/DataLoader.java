@@ -103,6 +103,8 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(AndyS);
 
         User FrankN = new User("FrankN", "oobbsfrancis136@gmail.com", "password", PositionType.NONE, 2012);
+        userRepository.save(FrankN);
+
 
         // List of plots and communal areas (abstract class Area)
 
@@ -149,6 +151,10 @@ public class DataLoader implements ApplicationRunner {
         plot10.addUser(SeanB);
         plotRepository.save(plot10);
 
+        Plot plot40 = new Plot("Plot 40",40, 22, 5.5, false);
+        plot40.addUser(AndyS);
+        plotRepository.save(plot40);
+
         Communal communal1 = new Communal("Orchard", AreaType.ORCHARD, "20m2 area of fruit trees");
         communalRepository.save(communal1);
 
@@ -166,40 +172,40 @@ public class DataLoader implements ApplicationRunner {
 
         // Gardening tips, categorised by month.
 
-        Tip tip1 = new Tip("23/12/2020", AdministratorJanet, "New Year, new seeds!", "Place your seed order in January as it will soon be time to start sowing onions, cabbages, parsnips, leeks, sweet peas and calendula.", Month.JANUARY);
+        Tip tip1 = new Tip("23/12/2020", AndyS, "New Year, new seeds!", "Place your seed order in January as it will soon be time to start sowing onions, cabbages, parsnips, leeks, sweet peas and calendula.", Month.JANUARY);
         tipRepository.save(tip1);
 
-        Tip tip2 = new Tip("23/12/2020", AdministratorJanet, "Chitty chitty, spud spud", "Chit spuds in a cool, light place to develop healthy green shoots for planting from March onwards.", Month.FEBRUARY);
+        Tip tip2 = new Tip("23/12/2020", AndyS, "Chitty chitty, spud spud", "Chit spuds in a cool, light place to develop healthy green shoots for planting from March onwards.", Month.FEBRUARY);
         tipRepository.save(tip2);
 
-        Tip tip3 = new Tip("23/12/2020", AdministratorJanet, "Risk-free investments", "Try planting risk-free hardy veg that don’t mind the cold, such as carrots, peas, broad beans, spinach, radish, parsnips and leeks.", Month.MARCH);
+        Tip tip3 = new Tip("23/12/2020", AndyS, "Risk-free investments", "Try planting risk-free hardy veg that don’t mind the cold, such as carrots, peas, broad beans, spinach, radish, parsnips and leeks.", Month.MARCH);
         tipRepository.save(tip3);
 
-        Tip tip4 = new Tip("23/12/2020", AdministratorJanet, "Well 'ard", "Start to harden off young plants with protection for planting out – keep a careful eye on the weather forecast.", Month.APRIL);
+        Tip tip4 = new Tip("23/12/2020", AndyS, "Well 'ard", "Start to harden off young plants with protection for planting out – keep a careful eye on the weather forecast.", Month.APRIL);
         tipRepository.save(tip4);
 
-        Tip tip5 = new Tip("23/12/2020", AdministratorJanet, "Stop slugs in their tracks!", "If you have to use slug repellent, gardeners at The Eden Project recommend Advanced Slug Killer as it doesn’t harm the birds.", Month.MAY);
+        Tip tip5 = new Tip("23/12/2020", AndyS, "Stop slugs in their tracks!", "If you have to use slug repellent, gardeners at The Eden Project recommend Advanced Slug Killer as it doesn’t harm the birds.", Month.MAY);
         tipRepository.save(tip5);
 
-        Tip tip6 = new Tip("28/04/2021", AdministratorJanet, "Tough love", "If carrots, beetroot and lettuce seem overcrowded gently pull a few young plants up to allow others to swell. You can eat these baby veg.", Month.JUNE);
+        Tip tip6 = new Tip("28/04/2021", AndyS, "Tough love", "If carrots, beetroot and lettuce seem overcrowded gently pull a few young plants up to allow others to swell. You can eat these baby veg.", Month.JUNE);
         tipRepository.save(tip6);
 
-        Tip tip7 = new Tip("28/04/2021", AdministratorJanet, "Watch out, pests are about!", "It’s time to keep an eye out for plant pests. Check tips on young growing plants for clusters of greenflies, or for any distortion which might be aphids inside.", Month.JULY);
+        Tip tip7 = new Tip("28/04/2021", AndyS, "Watch out, pests are about!", "It’s time to keep an eye out for plant pests. Check tips on young growing plants for clusters of greenflies, or for any distortion which might be aphids inside.", Month.JULY);
         tipRepository.save(tip7);
 
-        Tip tip8 = new Tip("28/04/2021", AdministratorJanet, "What a-sprout now?", "Plant out brassicas, such as kale and sprouts, now and they’ll be ready in the winter. Planting them deeply promotes strong growth.", Month.AUGUST);
+        Tip tip8 = new Tip("28/04/2021", AndyS, "What a-sprout now?", "Plant out brassicas, such as kale and sprouts, now and they’ll be ready in the winter. Planting them deeply promotes strong growth.", Month.AUGUST);
         tipRepository.save(tip8);
 
-        Tip tip9 = new Tip("28/04/2021", AdministratorJanet, "Cool and collected", "Dig up potatoes carefully on a sunny day. Allow to dry before storing somewhere cool, dry and dark.", Month.SEPTEMBER);
+        Tip tip9 = new Tip("28/04/2021", AndyS, "Cool and collected", "Dig up potatoes carefully on a sunny day. Allow to dry before storing somewhere cool, dry and dark.", Month.SEPTEMBER);
         tipRepository.save(tip9);
 
-        Tip tip10 = new Tip("28/04/2021", AdministratorJanet, "Ghhhaaarlic", "In the veg patch plant garlic cloves with their pointed ends up, and spaced 10cm apart.", Month.OCTOBER);
+        Tip tip10 = new Tip("28/04/2021", AndyS, "Ghhhaaarlic", "In the veg patch plant garlic cloves with their pointed ends up, and spaced 10cm apart.", Month.OCTOBER);
         tipRepository.save(tip10);
 
-        Tip tip11 = new Tip("28/04/2021", AdministratorJanet, "Mulch to do", "Mulch bare vegetable areas to prevent winter rain from washing nutrients out of the soil.", Month.NOVEMBER);
+        Tip tip11 = new Tip("28/04/2021", AndyS, "Mulch to do", "Mulch bare vegetable areas to prevent winter rain from washing nutrients out of the soil.", Month.NOVEMBER);
         tipRepository.save(tip11);
 
-        Tip tip12 = new Tip("28/04/2021", AdministratorJanet, "Can you dig it?", "If you love digging, on a dry day when the ground’s not frozen get out and turn the veg patch to let the frost in.", Month.DECEMBER);
+        Tip tip12 = new Tip("28/04/2021", AndyS, "Can you dig it?", "If you love digging, on a dry day when the ground’s not frozen get out and turn the veg patch to let the frost in.", Month.DECEMBER);
         tipRepository.save(tip12);
 
 
@@ -207,29 +213,29 @@ public class DataLoader implements ApplicationRunner {
         // List of allotment jobs which require volunteers
 
 
-        Job job1 = new Job("04/02/2021", Mike,"Toilet door", "The toilet door lock has broken and needs to be replaced.", communal4, "30/06/2021", 5);
+        Job job1 = new Job("04/02/2021", LaurenAW,"Toilet door", "The toilet door lock has broken and needs to be replaced.", communal4, "30/06/2021", 5);
         jobRepository.save(job1);
 
-        Job job2 = new Job("31/05/2021", Mike,"Tip trip", "There is a pile of bundled rubbish that needs to go to the tip, unless someone can repurpose any of it?", communal3, "10/07/2021", 2);
+        Job job2 = new Job("31/05/2021", SukiS,"Tip trip", "There is a pile of bundled rubbish that needs to go to the tip, unless someone can repurpose any of it?", communal3, "10/07/2021", 2);
         jobRepository.save(job2);
 
-        Job job3 = new Job("31/05/2021", Mike,"Wheelbarrow tyres", "The communal wheelbarrows (x2) need their tyres pumped up. Does anyone have a pump and the elbow grease to do it?", communal1, "28/06/2021", 2);
+        Job job3 = new Job("31/05/2021", SukiS,"Wheelbarrow tyres", "The communal wheelbarrows (x2) need their tyres pumped up. Does anyone have a pump and the elbow grease to do it?", communal1, "28/06/2021", 2);
         jobRepository.save(job3);
 
 
 
         // List of bulletin items for the notice board
 
-        BulletinItem news1 = new BulletinItem("01/11/2020", Andy, "Lecture - free to attend", "The Botanic Society of Scotland is holding a free online lecture called 'What plant is that? Are smartphone apps the answer?', on 19/11/2020. If anyone is interested go to https://www.botanical-society-scotland.org.uk/category/news-events/lectures");
+        BulletinItem news1 = new BulletinItem("01/11/2020", AndyS, "Lecture - free to attend", "The Botanic Society of Scotland is holding a free online lecture called 'What plant is that? Are smartphone apps the answer?', on 19/11/2020. If anyone is interested go to https://www.botanical-society-scotland.org.uk/category/news-events/lectures");
         bulletinItemRepository.save(news1);
 
-        BulletinItem news2 = new BulletinItem("05/01/2021", Andy, "Welcome!", "A big welcome to new plot holder Jim Currie. Jim has taken on plot 52 and would be happy for any of you to pop by to say hello");
+        BulletinItem news2 = new BulletinItem("05/01/2021", AndyS, "Welcome!", "A big welcome to new plot holder Jim Currie. Jim has taken on plot 52 and would be happy for any of you to pop by to say hello");
         bulletinItemRepository.save(news2);
 
-        BulletinItem news3 = new BulletinItem("16/02/2021", AdministratorJanet, "Free carpet", "A delivery of old carpet, around 20m2, will arrive at the container on 18/02/2021. First come, first served. No fighting please! :-)");
+        BulletinItem news3 = new BulletinItem("16/02/2021", AndyS, "Free carpet", "A delivery of old carpet, around 20m2, will arrive at the container on 18/02/2021. First come, first served. No fighting please! :-)");
         bulletinItemRepository.save(news3);
 
-        BulletinItem news4 = new BulletinItem("23/04/2021", Mike, "New water supply installed", "Good news! The new water supply has been installed by the containers. Well done to Mary of plot 3 and Carl of plot 42 who made it happen! Thank you!");
+        BulletinItem news4 = new BulletinItem("23/04/2021", SukiS, "New water supply installed", "Good news! The new water supply has been installed by the containers. Well done to Mary of plot 3 and Carl of plot 42 who made it happen! Thank you!");
         bulletinItemRepository.save(news4);
 
 
@@ -237,22 +243,22 @@ public class DataLoader implements ApplicationRunner {
 
         // List of know-how items, recorded by plot holders.
 
-        Knowhow knowhow1 = new Knowhow("23/09/2020", Andy, "Chitting potatoes", "Leave your potatoes out 6 weeks before planting to allow the shoots to grow", Month.FEBRUARY);
+        Knowhow knowhow1 = new Knowhow("23/09/2020", AndyS, "Chitting potatoes", "Leave your potatoes out 6 weeks before planting to allow the shoots to grow", Month.FEBRUARY);
         knowhowRepository.save(knowhow1);
 
-        Knowhow knowhow2 = new Knowhow("13/01/2021", Andy, "Spring onions", "September is one of the busiest months with harvesting. It’s worth sowing some winter hardy spring onions ready for spring. I stick with White Lisbon, which never fails me, but make sure you get winter hardy.", Month.SEPTEMBER);
+        Knowhow knowhow2 = new Knowhow("13/01/2021", AndyS, "Spring onions", "September is one of the busiest months with harvesting. It’s worth sowing some winter hardy spring onions ready for spring. I stick with White Lisbon, which never fails me, but make sure you get winter hardy.", Month.SEPTEMBER);
         knowhowRepository.save(knowhow2);
 
-        Knowhow knowhow3 = new Knowhow("25/04/2021", Mike, "Growing potatoes", "My lesson - not learned but taught by my next door neighbour is to make as much compost as you can. I was amazed at my success with potatoes which were planted in rich soil with lots of compost in it.", Month.APRIL);
+        Knowhow knowhow3 = new Knowhow("25/04/2021", SukiS, "Growing potatoes", "My lesson - not learned but taught by my next door neighbour is to make as much compost as you can. I was amazed at my success with potatoes which were planted in rich soil with lots of compost in it.", Month.APRIL);
         knowhowRepository.save(knowhow3);
 
-        Knowhow knowhow4 = new Knowhow("03/01/2021", Pauline, "Leeks", "Dig a shallow trench, dig up your leeks in good weather and trim the roots. Lay them in the trench at an angle so most of the leek is out of the trench and cover with loose soil. When you want some, just pull without any strain", Month.JANUARY);
+        Knowhow knowhow4 = new Knowhow("03/01/2021", LaurenAW, "Leeks", "Dig a shallow trench, dig up your leeks in good weather and trim the roots. Lay them in the trench at an angle so most of the leek is out of the trench and cover with loose soil. When you want some, just pull without any strain", Month.JANUARY);
         knowhowRepository.save(knowhow4);
 
-        Knowhow knowhow5 = new Knowhow("13/02/2021", Pauline, "Parsnips", "Conventional advice is often to sow parsnips in Feb but I believe their reputation for poor germination rates is due to being placed in cold wet soil and I have had much better germination rates by sowing in March or even April.", Month.FEBRUARY);
+        Knowhow knowhow5 = new Knowhow("13/02/2021", LaurenAW, "Parsnips", "Conventional advice is often to sow parsnips in Feb but I believe their reputation for poor germination rates is due to being placed in cold wet soil and I have had much better germination rates by sowing in March or even April.", Month.FEBRUARY);
         knowhowRepository.save(knowhow5);
 
-        Knowhow knowhow6 = new Knowhow("15/011/2020", AdministratorJanet, "Bean harvesting", "Your runner beans will be at the top of the canes in August so pinch out their growing tip to encourage bushier growth below. Pick all runner, climbing and dwarf beans regularly.", Month.AUGUST);
+        Knowhow knowhow6 = new Knowhow("15/011/2020", AndyS, "Bean harvesting", "Your runner beans will be at the top of the canes in August so pinch out their growing tip to encourage bushier growth below. Pick all runner, climbing and dwarf beans regularly.", Month.AUGUST);
         knowhowRepository.save(knowhow6);
 
 
@@ -324,21 +330,21 @@ public class DataLoader implements ApplicationRunner {
 
         // List of comments pertaining to plot history
 
-        Comment comment1 = new Comment("15/04/2018", Andy, "Paths", "Laid paths using weed fabric, metal pins and wood chips.", plot1);
+        Comment comment1 = new Comment("15/04/2018", AndyS, "Paths", "Laid paths using weed fabric, metal pins and wood chips.", plot40);
         commentRepository.save(comment1);
 
-        Comment comment2 = new Comment("12/05/2018", Andy, "Raised Beds", "Built 12 raised beds using scaffold boards.  They have a life of 5-8 years.", plot1);
+        Comment comment2 = new Comment("12/05/2018", AndyS, "Raised Beds", "Built 12 raised beds using scaffold boards.  They have a life of 5-8 years.", plot40);
         commentRepository.save(comment2);
 
-        Comment comment3 = new Comment("06/04/2020", Andy, "Pond", "Built small pond using plastic sheeting and rocks", plot1);
+        Comment comment3 = new Comment("06/04/2020", AndyS, "Pond", "Built small pond using plastic sheeting and rocks", plot40);
         commentRepository.save(comment3);
 
 
         // List of replies
 
-        Reply reply1 = new Reply("Wow that's some good info", "16/06/2021", Pauline, knowhow1);
+        Reply reply1 = new Reply("Wow that's some good info", "16/06/2021", LaurenAW, knowhow1);
         replyRepository.save(reply1);
-        Reply reply2 = new Reply("Thanks :) I stole it.", "16/06/2021", Andy, knowhow1);
+        Reply reply2 = new Reply("Thanks :) I stole it.", "16/06/2021", AndyS, knowhow1);
         replyRepository.save(reply2);
 
 
@@ -350,7 +356,7 @@ public class DataLoader implements ApplicationRunner {
 //        Comment comment2job3 = new Comment("02/06/2021", Brian, "Wheelbarrow tyres", "I have pump and can do it on Saturday", plot2);
 //        commentRepository.save(comment2job3);
 //
-//        Comment comment3knowhow2 = new Comment("14/01/2021", Mike, "Also...", "I do the same myself Andy. You can also plant your sprouts now for Christmas", plot3);
+//        Comment comment3knowhow2 = new Comment("14/01/2021", SukiS, "Also...", "I do the same myself Andy. You can also plant your sprouts now for Christmas", plot3);
 //        commentRepository.save(comment3knowhow2);
 
 

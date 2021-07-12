@@ -1,7 +1,5 @@
 package com.GrowHub.Server.models;
 
-import com.GrowHub.Server.models.enums.AreaType;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
@@ -27,7 +25,7 @@ public class Plot extends Area{
     private boolean isFlat;
 
 //    @JsonBackReference(value="plot") //
-    @JsonIgnoreProperties(value="plots")
+    @JsonIgnoreProperties({"plot", "author"})
     @OneToMany(mappedBy = "plot", fetch = FetchType.LAZY)
     private List<Comment> comments;
 
@@ -117,9 +115,7 @@ public class Plot extends Area{
     }
 
     public void removeUser(User user) {
-        if (this.users.contains(user)) {
             this.users.remove(user);
-        }
     }
 
     public void addComment(Comment comment) {
@@ -127,14 +123,6 @@ public class Plot extends Area{
     }
 
     public void removeComment(Comment comment) {
-        if (this.comments.contains(comment)) {
             this.comments.remove(comment);
-        }
     }
-
-
-
-
-
-
 }

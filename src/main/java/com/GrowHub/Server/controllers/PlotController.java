@@ -50,7 +50,7 @@ public class PlotController {
         return new ResponseEntity(foundPlots, HttpStatus.OK);
     }
 
-    @PutMapping(value = "/plots/{plotId}/addUser/{userId}")
+    @PutMapping(value = "/plots/{plotId}/users/{userId}")
     public ResponseEntity<Plot> addUserToPlot(@PathVariable Long plotId, @PathVariable Long userId){
         Plot plotToUpdate = plotRepository.findById(plotId).get();
         User user = userRepository.findById(userId).get();
@@ -58,6 +58,17 @@ public class PlotController {
             plotToUpdate.addUser(user);
             plotRepository.save(plotToUpdate);
 //            //user.addPlot(plotToUpdate);
+        }
+        return new ResponseEntity<>(plotToUpdate, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/plots/{plotId}/users/{userId}")
+    public ResponseEntity<Plot> removeUserFromPlot(@PathVariable Long plotId, @PathVariable Long userId){
+        Plot plotToUpdate = plotRepository.findById(plotId).get();
+        User user = userRepository.findById(userId).get();
+        if (plotToUpdate.contains(user)) {
+            plotToUpdate.removeUser(user);
+            plotRepository.save(plotToUpdate);
         }
         return new ResponseEntity<>(plotToUpdate, HttpStatus.OK);
     }

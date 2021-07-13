@@ -20,16 +20,8 @@ public class Crop {
     private String name;
 
     @JsonIgnoreProperties({"crops", "email", "password", "yearJoined", "yearLeft", "plots"})
-    @ManyToMany
+    @ManyToMany(mappedBy = "crops")
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            joinColumns = {
-                    @JoinColumn(name = "crop_id", nullable = false, updatable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "user_id", nullable = false, updatable = false )
-            }
-    )
     private List<User> users;
 
     //CONSTRUCTOR

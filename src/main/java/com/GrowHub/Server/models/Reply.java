@@ -28,7 +28,7 @@ public class Reply {
     @Column
     private String date;
 
-    @JsonIgnoreProperties(value = "replies")
+    @JsonIgnoreProperties({"replies", "email", "password", "yearJoined", "yearLeft", "plots", "crops"})
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
     private User author;

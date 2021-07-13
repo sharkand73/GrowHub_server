@@ -35,7 +35,7 @@ public class User {
     @Column
     private int yearLeft;
 
-    @JsonIgnoreProperties(value = "users")
+    @JsonIgnoreProperties({"users", "length", "breadth", "comments", "flat"})
     @ManyToMany(mappedBy = "users")
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private List<Plot> plots;

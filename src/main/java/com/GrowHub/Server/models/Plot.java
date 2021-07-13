@@ -30,7 +30,7 @@ public class Plot extends Area{
     private List<Comment> comments;
 
 //    @JsonBackReference(value="plots") // this one works for knowhows, but not for jobs
-    @JsonIgnoreProperties(value = "plots")
+    @JsonIgnoreProperties({"email", "password", "yearJoined", "yearLeft", "plots", "crops"})
     @ManyToMany
     @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.DELETE})
     @JoinTable(

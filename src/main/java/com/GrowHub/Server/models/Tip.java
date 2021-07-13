@@ -15,7 +15,7 @@ public class Tip extends TextContent{
     @Enumerated(value= EnumType.STRING)
     private Month month;
 
-    @JsonIgnoreProperties(value = "tips")
+    @JsonIgnoreProperties({"tips", "plots"})
 //    @JsonBackReference(value="tips")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)

@@ -19,7 +19,7 @@ public class Crop {
     @Column
     private String name;
 
-    @JsonIgnoreProperties("crops")
+    @JsonIgnoreProperties({"crops", "email", "password", "yearJoined", "yearLeft", "plots"})
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(

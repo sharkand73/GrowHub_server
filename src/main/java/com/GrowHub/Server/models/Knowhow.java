@@ -22,13 +22,13 @@ public class Knowhow extends TextContent{
     @Enumerated(value = EnumType.STRING)
     private Month month;
 
-    @JsonIgnoreProperties(value = "knowhows")
+    @JsonIgnoreProperties({"knowhows", "email", "password", "yearJoined", "yearLeft", "plots", "crops"})
 //    @JsonBackReference(value="know_hows")
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;
 
-    @JsonIgnoreProperties(value="knowhows")
+    @JsonIgnoreProperties({"knowhow", "email", "password", "yearJoined", "yearLeft", "plots", "crops"})
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @OneToMany(mappedBy = "knowhow", fetch = FetchType.LAZY)
     private List<Reply> replies;

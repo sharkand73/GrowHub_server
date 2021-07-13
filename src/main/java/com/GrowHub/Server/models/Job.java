@@ -22,7 +22,7 @@ public class Job extends TextContent{
 //            @JsonSubTypes.Type(value = Communal.class, name = "communal")
 //    })
 
-    @JsonIgnoreProperties(value="jobs")
+    @JsonIgnoreProperties({"jobs"})
     @ManyToOne
     @JoinColumn(name="communal_id", nullable = false)
     private Communal communal;
@@ -46,7 +46,7 @@ public class Job extends TextContent{
 //    )
 //    private List<User> jobUsers;
 
-    @JsonIgnoreProperties(value = "jobs")
+    @JsonIgnoreProperties({"jobs", "email", "password", "yearJoined", "yearLeft", "plots", "crops"})
     @ManyToOne
     @JoinColumn(name="author_id", nullable = false)
     private User author;

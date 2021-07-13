@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="bulletins")
 public class BulletinItem extends TextContent{
 
-    @JsonIgnoreProperties(value = "bulletins")
+    @JsonIgnoreProperties({"bulletins", "email", "password", "yearJoined", "yearLeft", "plots", "crops"})
 //    @JsonBackReference(value="bulletins")
     @ManyToOne
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)

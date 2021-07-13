@@ -15,13 +15,13 @@ import javax.persistence.Table;
 public class Comment extends TextContent{
 
 
-    @JsonIgnoreProperties(value="comments")
+    @JsonIgnoreProperties({"comments", "plots", "length", "breadth", "flat", "users"})
 //    @JsonBackReference(value="comments_plot")
     @ManyToOne
     @JoinColumn(name="plot_id", nullable = false)
     private Plot plot;
 
-    @JsonIgnoreProperties(value = "comments")
+    @JsonIgnoreProperties({"comments", "plots", "length", "breadth", "flat", "email", "password", "yearJoined", "yearLeft", "crops"})
 //    @JsonBackReference(value="comments_author")
     @ManyToOne
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)

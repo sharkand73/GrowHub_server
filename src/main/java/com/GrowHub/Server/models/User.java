@@ -21,9 +21,6 @@ public class User {
     private String shortName;
 
     @Column
-    private String email;
-
-    @Column
     private String password;
 
     @Column
@@ -86,9 +83,8 @@ public class User {
     private List<Knowhow> knowhows;
 
     //CONSTRUCTOR
-    public User(String shortName, String email, String password, PositionType position, int yearJoined) {
+    public User(String shortName, String password, PositionType position, int yearJoined) {
         this.shortName = shortName;
-        this.email = email;
         this.password = password;
         this.position = position;
         this.yearJoined = yearJoined;
@@ -118,14 +114,6 @@ public class User {
 
     public void setShortName(String shortName) {
         this.shortName = shortName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {

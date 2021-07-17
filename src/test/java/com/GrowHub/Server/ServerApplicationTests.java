@@ -47,7 +47,7 @@ class ServerApplicationTests {
 
 	@Test
 	void canAddUserToPlot() {
-		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		User Andy = new User("AndyS",  "jobbie101", PositionType.TREASURER, 2017);
 		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
 		plot1.addUser(Andy);
 		assertEquals(1, plot1.getUsers().size());
@@ -56,7 +56,7 @@ class ServerApplicationTests {
 
 	@Test
 	void cannotAddUserToPlotIfAlreadyThere() {
-		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		User Andy = new User("AndyS",  "jobbie101", PositionType.TREASURER, 2017);
 		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
 		plot1.addUser(Andy);
 		plot1.addUser(Andy);
@@ -65,7 +65,7 @@ class ServerApplicationTests {
 
 	@Test
 	void canRemoveUserFromPlot() {
-		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		User Andy = new User("AndyS",  "jobbie101", PositionType.TREASURER, 2017);
 		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
 		plot1.addUser(Andy);
 		plot1.removeUser(Andy);
@@ -74,8 +74,8 @@ class ServerApplicationTests {
 
 	@Test
 	void cannotRemoveUserFromPlotIfNotThere() {
-		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
-		User Mike = new User("MikeP", "bigmike@hotmail.co.uk", "pingpong2356", PositionType.ORDINARY, 2017);
+		User Andy = new User("AndyS",  "jobbie101", PositionType.TREASURER, 2017);
+		User Mike = new User("MikeP",  "pingpong2356", PositionType.ORDINARY, 2017);
 		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
 		plot1.addUser(Andy);
 		plot1.removeUser(Mike);
@@ -85,11 +85,11 @@ class ServerApplicationTests {
 	@Test
 	void canFindUsersByPlotNumber() {
 //		Added 'S' onto the end of users/plots below, as once the DataLoader was made, the tests failed as more objects were (expectedly) found
-		User AndyS = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		User AndyS = new User("AndyS",  "jobbie101", PositionType.TREASURER, 2017);
 		userRepository.save(AndyS);
-		User PaulineS = new User("PaulineS", "paulinelovescabbage@gmail", "whizkid763", PositionType.ORDINARY, 2016);
+		User PaulineS = new User("PaulineS",  "whizkid763", PositionType.ORDINARY, 2016);
 		userRepository.save(PaulineS);
-		User BrianS = new User("BrianH", "mrlovemonster@gmail", "45lovemachine78", PositionType.ORDINARY, 2020);
+		User BrianS = new User("BrianH",  "45lovemachine78", PositionType.ORDINARY, 2020);
 		userRepository.save(BrianS);
 
 		Plot plot1S = new Plot("Plot 1", 100, 5.4, 4.5, true);
@@ -105,7 +105,7 @@ class ServerApplicationTests {
 
 	@Test
 	void canFindPlotsBelongingToUser() {
-		User AndySS = new User("AndySS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		User AndySS = new User("AndySS",  "jobbie101", PositionType.TREASURER, 2017);
 		userRepository.save(AndySS);
 
 		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
@@ -123,7 +123,7 @@ class ServerApplicationTests {
 
 	@Test
 	void canAddJobApplyingToCommunalArea() {
-		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		User Andy = new User("AndyS",  "jobbie101", PositionType.TREASURER, 2017);
 		userRepository.save(Andy);
 		Communal communal4 = new Communal("Toilet", AreaType.TOILET, "Ecological toilet.");
 		communalRepository.save(communal4);
@@ -135,7 +135,7 @@ class ServerApplicationTests {
 
 	@Test
 	void canGetReplyInfo(){
-		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		User Andy = new User("AndyS",  "jobbie101", PositionType.TREASURER, 2017);
 		userRepository.save(Andy);
 
 		Knowhow knowhow1 = new Knowhow("23/09/2020", Andy, "Chitting potatoes", "Leave your potatoes out 6 weeks before planting to allow the shoots to grow", Month.FEBRUARY);
@@ -151,7 +151,7 @@ class ServerApplicationTests {
 	@Test
 	void canAddPlotToUser() {
 		Plot plot1 = new Plot("Plot 1", 1, 5.4, 4.5, true);
-		User Andy = new User("AndyS", "soilmuncher@hotmail.co.uk", "jobbie101", PositionType.TREASURER, 2017);
+		User Andy = new User("AndyS",  "jobbie101", PositionType.TREASURER, 2017);
 		Andy.addPlot(plot1);
 		assertEquals(1, Andy.getPlots().size());
 	}

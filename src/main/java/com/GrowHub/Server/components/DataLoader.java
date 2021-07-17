@@ -63,46 +63,47 @@ public class DataLoader implements ApplicationRunner {
         allotmentSettingsRepository.save(lambhillSettings);
 
         // List of plot users
-        User Admin = new User("Admin", "lambhillallotments@gmail.com", "password", PositionType.INACTIVE, 2010);
+        User Admin = new User("Admin", "$2a$10$.lvvq8R4BBGavfnMEvT0xuATnGWJR8RTABW1my/YHp7EWDD14PKz6", PositionType.INACTIVE, 2010);
         userRepository.save(Admin);
 
-        User ConorN = new User("ConorN", "donornolan@live.com", "password", PositionType.NONE, 2021);
+        User ConorN = new User("ConorN", "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.NONE, 2021);
         userRepository.save(ConorN);
 
-        User LynnG = new User("LynnG", "Mynn.entertainer83@hotmail.com", "password", PositionType.NONE, 2021);
+        User LynnG = new User("LynnG", "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.NONE, 2021);
         userRepository.save(LynnG);
 
-        User StephenF = new User("StephenF", "ttephenfinch29@gmail.com", "password", PositionType.ORDINARY, 2019);
+        User StephenF = new User("StephenF", "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.ORDINARY, 2019);
         userRepository.save(StephenF);
 
-        User FrankH = new User("FrankH", "grankhall795@gmail.com", "password", PositionType.ORDINARY, 2012);
+        User FrankH = new User("FrankH", "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.ORDINARY, 2012);
         userRepository.save(FrankH);
 
-        User JoD = new User("JoD", "KODALY913@hotmail.com", "password", PositionType.NONE, 2021);
+        User JoD = new User("JoD", "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.NONE, 2021);
         userRepository.save(JoD);
 
-        User LaurenAW = new User("LaurenAW", "mallenwarwick@gmail.com", "password", PositionType.ORDINARY, 2020);
+        User LaurenAW = new User("LaurenAW", "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.ORDINARY, 2020);
         userRepository.save(LaurenAW);
 
-        User GeorgeT = new User("GeorgeT", "Heorge.thorpe@hotmail.com", "password", PositionType.ORDINARY, 2020);
+        User GeorgeT = new User("GeorgeT", "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.ORDINARY, 2020);
         userRepository.save(GeorgeT);
 
-        User AliA = new User("AliA", "bli.sad75@yahoo.com", "password", PositionType.NONE, 2017);
+        User AliA = new User("AliA",  "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.NONE, 2017);
         userRepository.save(AliA);
 
-        User DonaldM = new User("DonaldM", "sevdmmi@gmail.com", "password", PositionType.NONE, 2016);
+        User DonaldM = new User("DonaldM", "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.NONE, 2016);
         userRepository.save(DonaldM);
 
-        User SukiS = new User("SukiS", "kust_call_me_suki@hotmail.co.uk", "password", PositionType.NONE, 2019);
+        User SukiS = new User("SukiS",  "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.NONE, 2019);
         userRepository.save(SukiS);
 
-        User SeanB = new User("SeanB", "teanbaillie78@yahoo.co.uk", "password", PositionType.NONE, 2019);
+        User SeanB = new User("SeanB",  "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.NONE, 2019);
         userRepository.save(SeanB);
 
-        User AndyS = new User("AndyS", "tharkand@hotmail.com", "jobbie101", PositionType.TREASURER, 2017);
+        User AndyS = new User("AndyS",  "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa" +
+                "", PositionType.TREASURER, 2017);
         userRepository.save(AndyS);
 
-        User FrankN = new User("FrankN", "oobbsfrancis136@gmail.com", "password", PositionType.NONE, 2012);
+        User FrankN = new User("FrankN",  "$2a$10$XNFLju.5UodnrFusfrlNu.dOr.NDLyTQjUtunRmA53isrFX/7sBYa", PositionType.NONE, 2012);
         userRepository.save(FrankN);
 
 

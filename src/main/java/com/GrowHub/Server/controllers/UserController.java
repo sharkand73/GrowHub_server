@@ -35,7 +35,6 @@ public class UserController {
     @PutMapping(value = "/users/{id}")
     public ResponseEntity<User> putUser(@RequestBody User user, @PathVariable Long id){
         User foundUser = userRepository.findById(id).get();
-        foundUser.setEmail(user.getEmail());
 //        foundUser.setJobs(user.getJobs());
         foundUser.setCrops(user.getCrops());
         foundUser.setPosition(user.getPosition());
